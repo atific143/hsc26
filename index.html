@@ -222,17 +222,17 @@
             <span class="text-2xl select-none">🚨</span>
         </div>
 
-        <!-- Dynamic Animated Meme Track (Amma chasing Takrim & Warisa) -->
+        <!-- Dynamic Animated Meme Track (3 Boys: Atif, Takrim, Durlob vs 3 Moms Squad) -->
         <div class="w-full glass-panel p-4 md:p-6 rounded-3xl border-2 border-red-800/40 relative overflow-hidden">
             <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
                 <h3 class="text-base md:text-lg font-bold font-bengali text-amber-400 flex items-center gap-2">
-                    <i class="fa-solid fa-person-running"></i> লাইভ রেসিং ট্রাক (আম্মা vs তাকরীম ও ওয়ারিসা)
+                    <i class="fa-solid fa-person-running"></i> লাইভ রেসিং ট্রাক (ATIF, TAKRIM, DURLOB vs ৩ আম্মা)
                 </h3>
                 <span id="chaseSpeedTag" class="text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-700 font-bengali">স্পিড: ১২০ কিমি/ঘণ্টা 🏃‍♂️</span>
             </div>
 
             <!-- SVG Canvas Box -->
-            <div class="w-full h-48 md:h-56 chase-track rounded-2xl relative border border-amber-900/50 flex items-center overflow-hidden px-2 md:px-4">
+            <div class="w-full h-52 md:h-60 chase-track rounded-2xl relative border border-amber-900/50 flex items-center overflow-hidden px-2 md:px-4">
                 
                 <!-- Background Motion Lines -->
                 <div class="absolute inset-0 opacity-20 pointer-events-none flex justify-around">
@@ -241,83 +241,127 @@
                     <div class="w-px h-full bg-white transform -rotate-45"></div>
                 </div>
 
-                <!-- Scene Characters Track -->
-                <div id="chaseContainer" class="w-full flex items-center justify-between relative z-10 transition-all duration-300">
+                <!-- Scene Characters Track (3 Boys & 3 Moms) -->
+                <div id="chaseContainer" class="w-full flex items-center justify-between relative z-10 transition-all duration-300 gap-1 md:gap-3">
                     
-                    <!-- 1. Running Takrim -->
-                    <div id="sonChar" class="flex flex-col items-center animate-chase relative">
+                    <!-- 1. ATIF -->
+                    <div id="sonChar1" class="flex flex-col items-center animate-chase relative">
                         <span class="text-blue-400 text-xs animate-sweat absolute -top-4 left-0">💦</span>
-                        <svg class="w-14 h-20 md:w-16 md:h-24 text-blue-400" viewBox="0 0 100 120">
-                            <!-- Head & Scared Face -->
+                        <svg class="w-12 h-18 md:w-14 md:h-22 text-blue-400" viewBox="0 0 100 120">
                             <circle cx="50" cy="30" r="18" fill="#38bdf8" />
                             <circle cx="43" cy="25" r="3" fill="#ffffff" />
                             <circle cx="57" cy="25" r="3" fill="#ffffff" />
                             <path d="M43 36 Q 50 42 57 36" stroke="#ffffff" stroke-width="2" fill="none" />
-                            <!-- Shirt -->
                             <rect x="40" y="48" width="20" height="35" rx="5" fill="#0284c7" />
-                            <!-- Legs -->
                             <line class="runner-leg-1" x1="43" y1="83" x2="30" y2="115" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
                             <line class="runner-leg-2" x1="57" y1="83" x2="70" y2="115" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
                         </svg>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-blue-300 bg-black/70 px-2 py-0.5 rounded mt-1">TAKRIM (GPA 3.5)</span>
+                        <span class="text-[9px] md:text-[10px] font-bold font-bengali text-blue-300 bg-black/70 px-1.5 py-0.5 rounded mt-1">ATIF</span>
                     </div>
 
-                    <!-- 2. Running Warisa -->
-                    <div id="daughterChar" class="flex flex-col items-center animate-chase relative" style="animation-delay: 0.2s;">
-                        <span class="text-pink-400 text-xs animate-sweat absolute -top-4 right-0">💦</span>
-                        <svg class="w-14 h-20 md:w-16 md:h-24 text-pink-400" viewBox="0 0 100 120">
-                            <circle cx="50" cy="30" r="18" fill="#f472b6" />
+                    <!-- 2. TAKRIM -->
+                    <div id="sonChar2" class="flex flex-col items-center animate-chase relative" style="animation-delay: 0.1s;">
+                        <span class="text-cyan-400 text-xs animate-sweat absolute -top-4 left-0">💦</span>
+                        <svg class="w-12 h-18 md:w-14 md:h-22 text-cyan-400" viewBox="0 0 100 120">
+                            <circle cx="50" cy="30" r="18" fill="#22d3ee" />
                             <circle cx="43" cy="25" r="3" fill="#ffffff" />
                             <circle cx="57" cy="25" r="3" fill="#ffffff" />
-                            <path d="M45 36 Q 50 40 55 36" stroke="#ffffff" stroke-width="2" fill="none" />
-                            <!-- Hair -->
-                            <path d="M32 25 Q 20 20 22 35" stroke="#f472b6" stroke-width="5" fill="none" />
-                            <!-- Dress -->
-                            <path d="M35 48 L65 48 L75 83 L25 83 Z" fill="#db2777" />
-                            <!-- Legs -->
-                            <line class="runner-leg-2" x1="40" y1="83" x2="28" y2="115" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
-                            <line class="runner-leg-1" x1="60" y1="83" x2="72" y2="115" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
+                            <path d="M43 36 Q 50 42 57 36" stroke="#ffffff" stroke-width="2" fill="none" />
+                            <rect x="40" y="48" width="20" height="35" rx="5" fill="#0891b2" />
+                            <line class="runner-leg-2" x1="43" y1="83" x2="30" y2="115" stroke="#22d3ee" stroke-width="6" stroke-linecap="round" />
+                            <line class="runner-leg-1" x1="57" y1="83" x2="70" y2="115" stroke="#22d3ee" stroke-width="6" stroke-linecap="round" />
                         </svg>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-pink-300 bg-black/70 px-2 py-0.5 rounded mt-1">WARISA (Fail in Physics)</span>
+                        <span class="text-[9px] md:text-[10px] font-bold font-bengali text-cyan-300 bg-black/70 px-1.5 py-0.5 rounded mt-1">TAKRIM</span>
                     </div>
 
-                    <!-- 3. Angry Mom (Amma) with Broom -->
-                    <div id="momChar" class="flex flex-col items-center animate-shake relative">
-                        <span class="text-red-500 text-[10px] md:text-xs font-bold absolute -top-5 animate-bounce">💢 রাগে লাল!</span>
-                        <div class="relative">
-                            <svg class="w-16 h-24 md:w-20 md:h-28 text-red-500" viewBox="0 0 120 130">
-                                <circle cx="50" cy="30" r="20" fill="#ef4444" />
+                    <!-- 3. DURLOB -->
+                    <div id="sonChar3" class="flex flex-col items-center animate-chase relative" style="animation-delay: 0.2s;">
+                        <span class="text-teal-400 text-xs animate-sweat absolute -top-4 left-0">💦</span>
+                        <svg class="w-12 h-18 md:w-14 md:h-22 text-teal-400" viewBox="0 0 100 120">
+                            <circle cx="50" cy="30" r="18" fill="#2dd4bf" />
+                            <circle cx="43" cy="25" r="3" fill="#ffffff" />
+                            <circle cx="57" cy="25" r="3" fill="#ffffff" />
+                            <path d="M43 36 Q 50 42 57 36" stroke="#ffffff" stroke-width="2" fill="none" />
+                            <rect x="40" y="48" width="20" height="35" rx="5" fill="#0d9488" />
+                            <line class="runner-leg-1" x1="43" y1="83" x2="30" y2="115" stroke="#2dd4bf" stroke-width="6" stroke-linecap="round" />
+                            <line class="runner-leg-2" x1="57" y1="83" x2="70" y2="115" stroke="#2dd4bf" stroke-width="6" stroke-linecap="round" />
+                        </svg>
+                        <span class="text-[9px] md:text-[10px] font-bold font-bengali text-teal-300 bg-black/70 px-1.5 py-0.5 rounded mt-1">DURLOB</span>
+                    </div>
+
+                    <!-- 3 Moms Squad with Brooms -->
+                    <div id="momSquad" class="flex items-center gap-1">
+                        <!-- Mom 1 -->
+                        <div class="flex flex-col items-center animate-shake relative">
+                            <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
+                            <div class="relative">
+                                <svg class="w-14 h-20 md:w-16 md:h-24 text-red-500" viewBox="0 0 120 130">
+                                    <circle cx="50" cy="30" r="20" fill="#ef4444" />
+                                    <circle cx="42" cy="25" r="3" fill="#ffffff" />
+                                    <circle cx="58" cy="25" r="3" fill="#ffffff" />
+                                    <line x1="38" y1="18" x2="46" y2="22" stroke="#ffffff" stroke-width="3" />
+                                    <line x1="62" y1="18" x2="54" y2="22" stroke="#ffffff" stroke-width="3" />
+                                    <ellipse cx="50" cy="37" rx="6" ry="4" fill="#7f1d1d" />
+                                    <path d="M30 50 L70 50 L80 95 L20 95 Z" fill="#b91c1c" />
+                                    <line class="runner-leg-1" x1="35" y1="95" x2="20" y2="125" stroke="#ef4444" stroke-width="6" stroke-linecap="round" />
+                                    <line class="runner-leg-2" x1="65" y1="95" x2="80" y2="125" stroke="#ef4444" stroke-width="6" stroke-linecap="round" />
+                                    <g class="broom-swing">
+                                        <line x1="70" y1="55" x2="110" y2="20" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" />
+                                        <path d="M105 15 L120 0 L125 10 L110 25 Z" fill="#d97706" />
+                                    </g>
+                                </svg>
+                                <span id="flyingSlipper" class="absolute -top-2 left-0 text-xl hidden animate-slipper-fly">🩴</span>
+                            </div>
+                        </div>
+
+                        <!-- Mom 2 -->
+                        <div class="flex flex-col items-center animate-shake relative" style="animation-delay: 0.2s;">
+                            <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
+                            <svg class="w-14 h-20 md:w-16 md:h-24 text-rose-600" viewBox="0 0 120 130">
+                                <circle cx="50" cy="30" r="20" fill="#e11d48" />
                                 <circle cx="42" cy="25" r="3" fill="#ffffff" />
                                 <circle cx="58" cy="25" r="3" fill="#ffffff" />
-                                <!-- Angry eyebrows -->
                                 <line x1="38" y1="18" x2="46" y2="22" stroke="#ffffff" stroke-width="3" />
                                 <line x1="62" y1="18" x2="54" y2="22" stroke="#ffffff" stroke-width="3" />
-                                <ellipse cx="50" cy="37" rx="6" ry="4" fill="#7f1d1d" />
-                                <!-- Saree -->
-                                <path d="M30 50 L70 50 L80 95 L20 95 Z" fill="#b91c1c" />
-                                <line class="runner-leg-1" x1="35" y1="95" x2="20" y2="125" stroke="#ef4444" stroke-width="7" stroke-linecap="round" />
-                                <line class="runner-leg-2" x1="65" y1="95" x2="80" y2="125" stroke="#ef4444" stroke-width="7" stroke-linecap="round" />
-                                
-                                <!-- Coconut Broom -->
+                                <ellipse cx="50" cy="37" rx="6" ry="4" fill="#881337" />
+                                <path d="M30 50 L70 50 L80 95 L20 95 Z" fill="#9f1239" />
+                                <line class="runner-leg-2" x1="35" y1="95" x2="20" y2="125" stroke="#e11d48" stroke-width="6" stroke-linecap="round" />
+                                <line class="runner-leg-1" x1="65" y1="95" x2="80" y2="125" stroke="#e11d48" stroke-width="6" stroke-linecap="round" />
                                 <g class="broom-swing">
-                                    <line x1="70" y1="55" x2="110" y2="20" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" />
+                                    <line x1="70" y1="55" x2="110" y2="20" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" />
                                     <path d="M105 15 L120 0 L125 10 L110 25 Z" fill="#d97706" />
                                 </g>
                             </svg>
-
-                            <!-- Animated Flying Slipper -->
-                            <span id="flyingSlipper" class="absolute -top-2 left-0 text-2xl hidden animate-slipper-fly">🩴</span>
                         </div>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-red-200 bg-black/70 px-2 py-0.5 rounded mt-1">আম্মা (ঝাড়ু + স্যান্ডেল হাতে)</span>
-                    </div>
 
+                        <!-- Mom 3 -->
+                        <div class="flex flex-col items-center animate-shake relative" style="animation-delay: 0.4s;">
+                            <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
+                            <svg class="w-14 h-20 md:w-16 md:h-24 text-red-600" viewBox="0 0 120 130">
+                                .<circle cx="50" cy="30" r="20" fill="#dc2626" />
+                                <circle cx="42" cy="25" r="3" fill="#ffffff" />
+                                <circle cx="58" cy="25" r="3" fill="#ffffff" />
+                                <line x1="38" y1="18" x2="46" y2="22" stroke="#ffffff" stroke-width="3" />
+                                <line x1="62" y1="18" x2="54" y2="22" stroke="#ffffff" stroke-width="3" />
+                                <ellipse cx="50" cy="37" rx="6" ry="4" fill="#450a0a" />
+                                <path d="M30 50 L70 50 L80 95 L20 95 Z" fill="#7f1d1d" />
+                                <line class="runner-leg-1" x1="35" y1="95" x2="20" y2="125" stroke="#dc2626" stroke-width="6" stroke-linecap="round" />
+                                <line class="runner-leg-2" x1="65" y1="95" x2="80" y2="125" stroke="#dc2626" stroke-width="6" stroke-linecap="round" />
+                                <g class="broom-swing">
+                                    <line x1="70" y1="55" x2="110" y2="20" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" />
+                                    <path d="M105 15 L120 0 L125 10 L110 25 Z" fill="#d97706" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
             <!-- Controls for Animation Scene -->
             <div class="mt-4 flex flex-wrap gap-2.5 justify-center">
                 <button onclick="boostChaseSpeed()" class="px-3.5 py-2 rounded-xl bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center gap-2">
-                    <i class="fa-solid fa-gauge-high"></i> স্পিড বাড়াও 🏃‍♂️ (আম্মা কাছে আসতেছে!)
+                    <i class="fa-solid fa-gauge-high"></i> স্পিড বাড়াও 🏃‍♂️ (আম্মারা তেড়ে আসতেছে!)
                 </button>
                 <button onclick="triggerBroomAttack()" class="px-3.5 py-2 rounded-xl bg-amber-900/60 hover:bg-amber-800 border border-amber-500/50 text-amber-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center gap-2">
                     <i class="fa-solid fa-broom"></i> ঝাঁড়ু + স্যান্ডেল অ্যাটাক 🧹🩴
@@ -403,7 +447,7 @@
                     <div id="meterEmoji" class="text-3xl select-none">🩴</div>
                     <div>
                         <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-xs md:text-sm">উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!</h4>
-                        <p id="meterDesc" class="text-[11px] md:text-xs text-gray-400 font-bengali">আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।</p>
+                        <p id="meterDesc" class="text-[11px] md:text-xs text-gray-400 font-bengali">আম্মারা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।</p>
                     </div>
                 </div>
             </div>
@@ -604,15 +648,15 @@
                 meterBadge.className = "text-xs px-2.5 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-700 font-bengali font-semibold";
                 meterEmoji.textContent = "🩴";
                 meterTitle.textContent = "উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!";
-                meterDesc.textContent = "আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।";
+                meterDesc.textContent = "আম্মারা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।";
             }
         });
 
         // 5. Parent Excuses Generator
         const excuses = [
-            "\"প্রশ্নপত্র ফাস না হয়ে আমার ব্রেন ফাস হয়ে গেছিল!\"",
-            "\"খাতায় ফিজিক্সের নিউটন সাহেবের ল' এর বদলে আমার দুঃখের লাভ স্টোরি লিখে আসছি!\"",
-            "\"শিক্ষামন্ত্রীর দোষ ভাই, আমার কোনো দোষ নাই!\"",
+            "\"প্রশ্নপত্র ফাস না হয়ে আমাদের ব্রেন ফাস হয়ে গেছিল!\"",
+            "\"খাতায় ফিজিক্সের নিউটন সাহেবের ল' এর বদলে আমাদের দুঃখের লাভ স্টোরি লিখে আসছি!\"",
+            "\"শিক্ষামন্ত্রীর দোষ ভাই, আমাদের কোনো দোষ নাই!\"",
             "\"সারাক্ষণ তো বলতাম দেশের পরিস্থিতি ভালো না, আজ প্রমাণ করলাম খাতার রেজাল্টও ভালো না!\"",
             "\"স্যার খাতা দেখার সময় হয়তো চশমা পরতে ভুলে গেছিলেন!\"",
             "\"পরীক্ষার হলে মশার কামড়ে এমসিকিউ সব ভুল দাগাইছি!\""
@@ -642,13 +686,13 @@
             if (currentSpeedKmph > 300) currentSpeedKmph = 300;
             document.getElementById('chaseSpeedTag').textContent = `স্পিড: ${currentSpeedKmph} কিমি/ঘণ্টা 🏃‍♂️`;
             
-            const son = document.getElementById('sonChar');
-            const daughter = document.getElementById('daughterChar');
-            const mom = document.getElementById('momChar');
+            const s1 = document.getElementById('sonChar1');
+            const s2 = document.getElementById('sonChar2');
+            const s3 = document.getElementById('sonChar3');
             
-            son.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
-            daughter.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
-            mom.style.animationDuration = `${Math.max(0.05, 0.3 - (currentSpeedKmph/1000))}s`;
+            s1.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
+            s2.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
+            s3.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
         }
 
         function triggerBroomAttack() {
