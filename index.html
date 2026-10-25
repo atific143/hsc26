@@ -222,11 +222,11 @@
             <span class="text-2xl select-none">🚨</span>
         </div>
 
-        <!-- Dynamic Animated Meme Track (Amma chasing Son & Daughter) -->
+        <!-- Dynamic Animated Meme Track (Amma chasing Takrim & Warisa) -->
         <div class="w-full glass-panel p-4 md:p-6 rounded-3xl border-2 border-red-800/40 relative overflow-hidden">
             <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
                 <h3 class="text-base md:text-lg font-bold font-bengali text-amber-400 flex items-center gap-2">
-                    <i class="fa-solid fa-person-running"></i> লাইভ রেসিং ট্রাক (আম্মা vs ছেলে-মেয়ে)
+                    <i class="fa-solid fa-person-running"></i> লাইভ রেসিং ট্রাক (আম্মা vs তাকরীম ও ওয়ারিসা)
                 </h3>
                 <span id="chaseSpeedTag" class="text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-700 font-bengali">স্পিড: ১২০ কিমি/ঘণ্টা 🏃‍♂️</span>
             </div>
@@ -244,7 +244,7 @@
                 <!-- Scene Characters Track -->
                 <div id="chaseContainer" class="w-full flex items-center justify-between relative z-10 transition-all duration-300">
                     
-                    <!-- 1. Running Son (Pola) -->
+                    <!-- 1. Running Takrim -->
                     <div id="sonChar" class="flex flex-col items-center animate-chase relative">
                         <span class="text-blue-400 text-xs animate-sweat absolute -top-4 left-0">💦</span>
                         <svg class="w-14 h-20 md:w-16 md:h-24 text-blue-400" viewBox="0 0 100 120">
@@ -259,10 +259,10 @@
                             <line class="runner-leg-1" x1="43" y1="83" x2="30" y2="115" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
                             <line class="runner-leg-2" x1="57" y1="83" x2="70" y2="115" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
                         </svg>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-blue-300 bg-black/70 px-2 py-0.5 rounded mt-1">ছেলে (GPA 3.5)</span>
+                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-blue-300 bg-black/70 px-2 py-0.5 rounded mt-1">TAKRIM (GPA 3.5)</span>
                     </div>
 
-                    <!-- 2. Running Daughter (Meye) -->
+                    <!-- 2. Running Warisa -->
                     <div id="daughterChar" class="flex flex-col items-center animate-chase relative" style="animation-delay: 0.2s;">
                         <span class="text-pink-400 text-xs animate-sweat absolute -top-4 right-0">💦</span>
                         <svg class="w-14 h-20 md:w-16 md:h-24 text-pink-400" viewBox="0 0 100 120">
@@ -278,7 +278,7 @@
                             <line class="runner-leg-2" x1="40" y1="83" x2="28" y2="115" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
                             <line class="runner-leg-1" x1="60" y1="83" x2="72" y2="115" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
                         </svg>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-pink-300 bg-black/70 px-2 py-0.5 rounded mt-1">মেয়ে (Fail in Physics)</span>
+                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-pink-300 bg-black/70 px-2 py-0.5 rounded mt-1">WARISA (Fail in Physics)</span>
                     </div>
 
                     <!-- 3. Angry Mom (Amma) with Broom -->
@@ -308,7 +308,7 @@
                             <!-- Animated Flying Slipper -->
                             <span id="flyingSlipper" class="absolute -top-2 left-0 text-2xl hidden animate-slipper-fly">🩴</span>
                         </div>
-                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-red-200 bg-black/70 px-2 py-0.5 rounded mt-1">আম্মা (ঝাড়ু + স্যান্ডেল হাতে)</span>
+                        <span class="text-[10px] md:text-[11px] font-bold font-bengali text-red-200 bg-black/70 px-2 py-0.5 rounded mt-1">আম্মা (ঝাড়ু + স্যান্ডেল হাতে)</span>
                     </div>
 
                 </div>
@@ -317,10 +317,10 @@
             <!-- Controls for Animation Scene -->
             <div class="mt-4 flex flex-wrap gap-2.5 justify-center">
                 <button onclick="boostChaseSpeed()" class="px-3.5 py-2 rounded-xl bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center gap-2">
-                    <i class="fa-solid fa-gauge-high"></i> স্পিড বাড়াও 🏃‍♂️ (আম্মা কাছে আসতেছে!)
+                    <i class="fa-solid fa-gauge-high"></i> স্পিড বাড়াও 🏃‍♂️ (আম্মা কাছে আসতেছে!)
                 </button>
                 <button onclick="triggerBroomAttack()" class="px-3.5 py-2 rounded-xl bg-amber-900/60 hover:bg-amber-800 border border-amber-500/50 text-amber-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center gap-2">
-                    <i class="fa-solid fa-broom"></i> ঝাঁড়ু + স্যান্ডেল অ্যাটাক 🧹🩴
+                    <i class="fa-solid fa-broom"></i> ঝাঁড়ু + স্যান্ডেল অ্যাটাক 🧹🩴
                 </button>
             </div>
         </div>
@@ -331,7 +331,7 @@
             <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-red-600/10 rounded-full blur-2xl"></div>
 
             <h2 class="text-xl md:text-3xl font-black mb-2 font-bengali blood-text">
-                কেয়ামতের বাকী আর মাত্র...
+                কেয়ামতের বাকী আর মাত্র...
             </h2>
             <div class="inline-block bg-black/60 border border-red-900/60 px-4 py-1.5 rounded-full mb-6">
                 <p class="text-xs md:text-sm text-gray-300 font-bengali">
@@ -363,10 +363,10 @@
                 </div>
             </div>
 
-            <!-- Dynamic Dynamic Status Meme Bar -->
+            <!-- Dynamic Status Meme Bar -->
             <div class="mt-6 p-3 rounded-xl bg-black/50 border border-red-900/40 text-xs md:text-sm font-bengali text-amber-300 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-skull text-red-500"></i>
-                <span id="statusMemeMessage">প্রস্তুত তো? স্যান্ডেলের বাড়ি খাইতে মানসিক শক্তি সঞ্চয় করুন!</span>
+                <span id="statusMemeMessage">প্রস্তুত তো? স্যান্ডেলের বাড়ি খাইতে মানসিক শক্তি সঞ্চয় করুন!</span>
             </div>
         </div>
 
@@ -386,7 +386,7 @@
                     </div>
 
                     <p class="text-xs text-gray-400 mb-5 font-bengali">
-                        আপনার রেজাল্ট নিয়ে ভয় কতটুকু? স্লাইডার টেনে অভিভাবক সতর্কবার্তা পরিবর্তন দেখুন:
+                        আপনার রেজাল্ট নিয়ে ভয় কতটুকু? স্লাইডার টেনে অভিভাবক সতর্কবার্তা পরিবর্তন দেখুন:
                     </p>
 
                     <input type="range" id="fearSlider" min="0" max="100" value="85" class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-600">
@@ -394,7 +394,7 @@
                     <div class="flex justify-between text-[11px] text-gray-400 mt-2 font-bengali">
                         <span>Safe (GPA 5.00)</span>
                         <span>Medium (মারধর হালকা)</span>
-                        <span>Extreme Danger (বাসা ছাড়ো)</span>
+                        <span>Extreme Danger (বাসা ছাড়ো)</span>
                     </div>
                 </div>
 
@@ -402,8 +402,8 @@
                 <div class="mt-5 p-3.5 rounded-xl bg-red-950/40 border border-red-900/50 flex items-center gap-3 cursor-pointer hover:bg-red-950/60 transition" onclick="playGhostSound()">
                     <div id="meterEmoji" class="text-3xl select-none">🩴</div>
                     <div>
-                        <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-xs md:text-sm">উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!</h4>
-                        <p id="meterDesc" class="text-[11px] md:text-xs text-gray-400 font-bengali">আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।</p>
+                        <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-xs md:text-sm">উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!</h4>
+                        <p id="meterDesc" class="text-[11px] md:text-xs text-gray-400 font-bengali">আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।</p>
                     </div>
                 </div>
             </div>
@@ -412,10 +412,10 @@
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-amber-600">
                 <div>
                     <h3 class="text-base md:text-lg font-bold font-bengali text-amber-400 flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-shield-halved"></i> অভিভাবকদের জন্য ওজুহাত ও দোয়ার কিট
+                        <i class="fa-solid fa-shield-halved"></i> অভিভাবকদের জন্য ওজুহাত ও দোয়ার কিট
                     </h3>
                     <p class="text-xs text-gray-400 mb-5 font-bengali">
-                        রেজাল্ট পরবর্তী পরিস্থিতি সামলাতে বাটন চেপে সেরা ওজুহাত অথবা ইমোশনাল দোয়ার শিল্ড ব্যবহার করুন।
+                        রেজাল্ট পরবর্তী পরিস্থিতি সামলাতে বাটন চেপে সেরা ওজুহাত অথবা ইমোশনাল দোয়ার শিল্ড ব্যবহার করুন।
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-2.5">
@@ -423,7 +423,7 @@
                             <i class="fa-solid fa-lightbulb"></i> ওজুহাত জেনারেটর 💡
                         </button>
                         <button onclick="triggerPanicSupport()" class="flex-1 py-2.5 px-3 rounded-xl bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center justify-center gap-2 shadow-lg animate-pulse">
-                            <i class="fa-solid fa-hands-praying"></i> প্যানিক দোয়া শিল্ড 🤲
+                            <i class="fa-solid fa-hands-praying"></i> প্যানিক দোয়া শিল্ড 🤲
                         </button>
                     </div>
                 </div>
@@ -450,7 +450,7 @@
     <div id="panicModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
         <div class="glass-panel-danger max-w-md w-full p-6 rounded-3xl text-center relative border-2 border-red-500 animate-shake">
             <div class="text-5xl mb-3 select-none">🤲🩴</div>
-            <h3 class="text-xl md:text-2xl font-bold font-bengali text-red-400 mb-2">জরুরী আত্মরক্ষা দোয়া ও টেকনিক</h3>
+            <h3 class="text-xl md:text-2xl font-bold font-bengali text-red-400 mb-2">জরুরী আত্মরক্ষা দোয়া ও টেকনিক</h3>
             <p id="modalQuote" class="text-xs md:text-sm font-bengali text-gray-200 mb-6 leading-relaxed">
                 "হে আল্লাহ! পরীক্ষার রেজাল্ট যাই হোক, আম্মার হাতের বেলুন যেন আমার পিঠ স্পর্শ না করে! আমিন।"
             </p>
@@ -464,6 +464,10 @@
     <script>
         // Target Date: October 29, 2026, 10:00 AM BD Time (UTC+6)
         const targetDate = new Date('2026-10-29T10:00:00+06:00').getTime();
+
+        // Detect if the user is viewing on a mobile device/phone Chrome
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const mobileAudioBoost = isMobileDevice ? 3.5 : 1.0; 
 
         // Web Audio API Context
         let audioCtx = null;
@@ -488,7 +492,6 @@
                 btnIcon.className = "fa-solid fa-volume-high text-amber-400";
                 
                 let step = 0;
-                // Comedy rhythm frequencies (C Major pentatonic bounce tune)
                 const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63]; 
                 
                 comedyInterval = setInterval(() => {
@@ -500,7 +503,8 @@
                         osc.type = step % 2 === 0 ? 'sine' : 'triangle';
                         osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
                         
-                        gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                        const baseGain = 0.06;
+                        gain.gain.setValueAtTime(baseGain * mobileAudioBoost, audioCtx.currentTime);
                         gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
                         
                         osc.connect(gain);
@@ -532,8 +536,8 @@
                 ghostOsc.frequency.exponentialRampToValueAtTime(650, audioCtx.currentTime + 0.5);
                 ghostOsc.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 1.2);
                 
-                ghostGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-                ghostGain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.6);
+                ghostGain.gain.setValueAtTime(0.01 * mobileAudioBoost, audioCtx.currentTime);
+                ghostGain.gain.linearRampToValueAtTime(0.2 * mobileAudioBoost, audioCtx.currentTime + 0.6);
                 ghostGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
                 
                 ghostOsc.connect(ghostGain);
@@ -569,146 +573,110 @@
             document.getElementById('hours').innerText = String(h).padStart(2, '0');
             document.getElementById('minutes').innerText = String(m).padStart(2, '0');
             document.getElementById('seconds').innerText = String(s).padStart(2, '0');
-
-            const statusBox = document.getElementById('statusMemeMessage');
-            if (d > 2) {
-                statusBox.innerText = "😬 এখনও সময় আছে, আম্মা-আব্বারে বেশি বেশি চা বানিয়ে খাওয়ান!";
-            } else if (d >= 1) {
-                statusBox.innerText = "🚨 আর মাত্র কিছুদিন! বাসা থেকে পলায়নের প্ল্যান রেডি তো?";
-            } else {
-                statusBox.innerText = "😱 শেষ ২৪ ঘণ্টা! দরজা-জানালা বন্ধ রাখুন, স্যান্ডেল উড়ে আসতে পারে!";
-            }
         }
-
+        
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // 4. Funny Excuses Generator
-        const excuses = [
-            "“আম্মা, রোল নম্বর মনে হয় বোর্ডে ভুল ইনপুট দিছে, এইটা আমার রেজাল্ট না!” 🤖",
-            "“আব্বু, এইবার খাতা খুব টাইট কাটছে, স্যারের সাথে নাকি মারামারি হইছিল!” 📝",
-            "“পরীক্ষার দিন ডেনগু জ্বর আছিল, তাও যে এক্সাম দিছি এইটাই তো অলৌকিক!” 🦟",
-            "“আমাদের সেন্টারের হেডস্যার নাকি রেজাল্ট ভুল পাঠাইছে বোর্ডে!” 🏫",
-            "“আম্মা, GPA-5 পাইয়া কী হবে? দিনশেষে তো সবাই মানুষ হইতে চায়!” 🕊️",
-            "“সার্ভার হ্যাক হইছে! আমার A+ হ্যাকাররা চুরি কইরা নিয়া গেছে!” 💻"
-        ];
-
-        function generateExcuse() {
-            const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
-            const outputText = document.getElementById('interactiveText');
-            outputText.style.opacity = 0;
-            setTimeout(() => {
-                outputText.innerText = randomExcuse;
-                outputText.style.opacity = 1;
-            }, 120);
-        }
-
-        // 5. Emergency Panic Shield Popup
-        const quotes = [
-            "“হে আল্লাহ! রেজাল্ট যাই হোক, আম্মার ঝাড়ুর সাইজ যেন ছোট হয়!” 🧹",
-            "“আম্মা গো, ছোটবেলায় যে বলতা আমি তোমার কলিজার টুকরা, সেই টুকরাটাকে আজ বাঁচাও!” 🥺",
-            "“পড়ালেখা তো সারাজীবন করা যাবে, কিন্তু বাবাকে কি আর শান্ত পাওয়া যাবে?” 🏃‍♂️",
-            "“দোয়া একটাই: রেজাল্ট দেখার পর যেন কারেন্ট চলে যায়!” ⚡"
-        ];
-
-        function triggerPanicSupport() {
-            playGhostSound();
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById('modalQuote').innerText = randomQuote;
-            document.getElementById('panicModal').classList.remove('hidden');
-        }
-
-        function closePanicModal() {
-            document.getElementById('panicModal').classList.add('hidden');
-        }
-
-        // 6. Fear Level Slider Interaction
+        // 4. Fear Slider Logic
         const fearSlider = document.getElementById('fearSlider');
         const meterBadge = document.getElementById('meterBadge');
         const meterEmoji = document.getElementById('meterEmoji');
         const meterTitle = document.getElementById('meterTitle');
         const meterDesc = document.getElementById('meterDesc');
 
-        fearSlider.addEventListener('input', (e) => {
-            const val = e.target.value;
-            if (val < 30) {
-                meterBadge.innerText = "লেভেল: নিরাপদ Zone";
-                meterBadge.className = "text-xs px-2.5 py-0.5 rounded-full bg-green-950 text-green-300 border border-green-700 font-bengali font-semibold";
-                meterEmoji.innerText = "😇";
-                meterTitle.innerText = "GPA 5.00 Coming!";
-                meterDesc.innerText = "মিষ্টি খাওয়ার প্রস্তুত নিন, আম্মা পায়েস রাঁধতেছে!";
+        fearSlider.addEventListener('input', function() {
+            const val = parseInt(this.value);
+            if (val < 35) {
+                meterBadge.textContent = "লেভেল: নিরাপদ zone";
+                meterBadge.className = "text-xs px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700 font-bengali font-semibold";
+                meterEmoji.textContent = "😎";
+                meterTitle.textContent = "GPA 5.00 কনফার্ম!";
+                meterDesc.textContent = "বাসায় মিষ্টির বক্স অর্ডার করা শুরু করতে পারেন।";
             } else if (val < 70) {
-                meterBadge.innerText = "লেভেল: মাঝারি ঝুঁকি";
+                meterBadge.textContent = "লেভেল: মাঝারি আতঙ্ক";
                 meterBadge.className = "text-xs px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-700 font-bengali font-semibold";
-                meterEmoji.innerText = "😰";
-                meterTitle.innerText = "হালকা বকাঝকা ও ঝাড়ুর ভয়";
-                meterDesc.innerText = "আম্মা কপালে হাত দিয়ে চিন্তা করতেছে, আব্বা গম্ভীর চোখে তাকায় আছে।";
+                meterEmoji.textContent = "🧹";
+                meterTitle.textContent = "হালকা বকাঝকা ও বারান্দায় দাঁড়ানো";
+                meterDesc.textContent = "ফিজিক্সে একটু কম নম্বর আসলেও ম্যানেজ করা সম্ভব।";
             } else {
-                meterBadge.innerText = "লেভেল: চরম বিপদ";
+                meterBadge.textContent = "লেভেল: চরম বিপদ";
                 meterBadge.className = "text-xs px-2.5 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-700 font-bengali font-semibold";
-                meterEmoji.innerText = "🩴";
-                meterTitle.innerText = "উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!";
-                meterDesc.innerText = "আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।";
+                meterEmoji.textContent = "🩴";
+                meterTitle.textContent = "উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!";
+                meterDesc.textContent = "আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।";
             }
         });
 
-        // 7. Chase Track Speed & Broom Attack Trigger
-        let speedMultiplier = 1;
-        function boostChaseSpeed() {
+        // 5. Parent Excuses Generator
+        const excuses = [
+            "\"প্রশ্নপত্র ফাস না হয়ে আমার ব্রেন ফাস হয়ে গেছিল!\"",
+            "\"খাতায় ফিজিক্সের নিউটন সাহেবের ল' এর বদলে আমার দুঃখের লাভ স্টোরি লিখে আসছি!\"",
+            "\"শিক্ষামন্ত্রীর দোষ ভাই, আমার কোনো দোষ নাই!\"",
+            "\"সারাক্ষণ তো বলতাম দেশের পরিস্থিতি ভালো না, আজ প্রমাণ করলাম খাতার রেজাল্টও ভালো না!\"",
+            "\"স্যার খাতা দেখার সময় হয়তো চশমা পরতে ভুলে গেছিলেন!\"",
+            "\"পরীক্ষার হলে মশার কামড়ে এমসিকিউ সব ভুল দাগাইছি!\""
+        ];
+
+        function generateExcuse() {
+            const randomIndex = Math.floor(Math.random() * excuses.length);
+            document.getElementById('interactiveText').textContent = excuses[randomIndex];
+        }
+
+        // 6. Panic Modal & Dua Shield
+        function triggerPanicSupport() {
+            const modal = document.getElementById('panicModal');
+            modal.classList.remove('hidden');
             playGhostSound();
-            const mom = document.getElementById('momChar');
-            const tag = document.getElementById('chaseSpeedTag');
+        }
+
+        function closePanicModal() {
+            const modal = document.getElementById('panicModal');
+            modal.classList.add('hidden');
+        }
+
+        // 7. Chase & Speed Boost Controls
+        let currentSpeedKmph = 120;
+        function boostChaseSpeed() {
+            currentSpeedKmph += 40;
+            if (currentSpeedKmph > 300) currentSpeedKmph = 300;
+            document.getElementById('chaseSpeedTag').textContent = `স্পিড: ${currentSpeedKmph} কিমি/ঘণ্টা 🏃‍♂️`;
             
-            speedMultiplier = speedMultiplier === 1 ? 2 : 1;
-            if (speedMultiplier === 2) {
-                mom.style.transform = 'translate3d(35px, 0, 0)';
-                tag.innerText = "স্পিড: ২৫০ কিমি/ঘণ্টা 🚀 (আম্মা কাছে চলে এসেছে!)";
-                tag.className = "text-xs px-2.5 py-1 rounded-full bg-red-950 text-red-300 border border-red-600 font-bengali animate-pulse font-semibold";
-            } else {
-                mom.style.transform = 'translate3d(0, 0, 0)';
-                tag.innerText = "স্পিড: ১২০ কিমি/ঘণ্টা 🏃‍♂️";
-                tag.className = "text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-700 font-bengali font-semibold";
-            }
+            const son = document.getElementById('sonChar');
+            const daughter = document.getElementById('daughterChar');
+            const mom = document.getElementById('momChar');
+            
+            son.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
+            daughter.style.animationDuration = `${Math.max(0.1, 0.4 - (currentSpeedKmph/1000))}s`;
+            mom.style.animationDuration = `${Math.max(0.05, 0.3 - (currentSpeedKmph/1000))}s`;
         }
 
         function triggerBroomAttack() {
-            playGhostSound();
-            const son = document.getElementById('sonChar');
-            const daughter = document.getElementById('daughterChar');
             const slipper = document.getElementById('flyingSlipper');
-
             slipper.classList.remove('hidden');
-            son.classList.add('animate-shake');
-            daughter.classList.add('animate-shake');
-
+            slipper.style.animation = 'none';
+            void slipper.offsetWidth; // trigger reflow
+            slipper.style.animation = 'slipper-fly 1s cubic-bezier(0.25, 1, 0.5, 1) forwards';
+            playGhostSound();
+            
             setTimeout(() => {
                 slipper.classList.add('hidden');
-                son.classList.remove('animate-shake');
-                daughter.classList.remove('animate-shake');
-            }, 1200);
+            }, 1000);
         }
 
-        // 8. Floating Meme Background Generator
-        function initFloatingWeapons() {
-            const container = document.getElementById('weaponsContainer');
-            const items = ['🩴', '🧹', '⚡', '💣', '😱', '🩸', '📜'];
-            const itemCount = 12;
-
-            for (let i = 0; i < itemCount; i++) {
-                const el = document.createElement('div');
-                el.className = 'weapon-item';
-                el.innerText = items[Math.floor(Math.random() * items.length)];
-                el.style.left = `${Math.random() * 100}%`;
-                el.style.top = `${Math.random() * 100}%`;
-                el.style.animationDelay = `${Math.random() * 4}s`;
-                el.style.animationDuration = `${3 + Math.random() * 4}s`;
-                container.appendChild(el);
-            }
+        // 8. Floating Weapons Background Generator
+        const weapons = ['🩴', '🧹', '⚡', '🔥', '💀', '📚', '💔'];
+        const container = document.getElementById('weaponsContainer');
+        for (let i = 0; i < 20; i++) {
+            const div = document.createElement('div');
+            div.className = 'weapon-item';
+            div.textContent = weapons[Math.floor(Math.random() * weapons.length)];
+            div.style.left = `${Math.random() * 100}%`;
+            div.style.top = `${Math.random() * 100}%`;
+            div.style.animationDuration = `${4 + Math.random() * 6}s`;
+            div.style.animationDelay = `${Math.random() * 5}s`;
+            container.appendChild(div);
         }
-
-        window.onload = function() {
-            initFloatingWeapons();
-        };
     </script>
 </body>
 </html>
