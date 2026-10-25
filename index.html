@@ -69,7 +69,6 @@
             touch-action: manipulation;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -81,7 +80,6 @@
             border-radius: 4px;
         }
 
-        /* Glassmorphism styling */
         .glass-panel {
             background: rgba(18, 18, 28, 0.75);
             backdrop-filter: blur(12px);
@@ -98,7 +96,6 @@
             box-shadow: 0 0 25px rgba(220, 38, 38, 0.35);
         }
 
-        /* Speech Bubble Style */
         .speech-bubble {
             position: relative;
             background: linear-gradient(135deg, #7f1d1d, #991b1b);
@@ -109,7 +106,6 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        /* Floating Meme Weapons background */
         .floating-weapons {
             position: fixed;
             top: 0;
@@ -130,7 +126,6 @@
             animation: float 5s ease-in-out infinite;
         }
 
-        /* Gradient Text */
         .blood-text {
             background: linear-gradient(180deg, #ff4d4d 0%, #990000 100%);
             -webkit-background-clip: text;
@@ -138,14 +133,12 @@
             filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 0.6));
         }
         
-        /* Modal Backdrop */
         .modal-bg {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
 
-        /* Animation Track for Chase Scene */
         .chase-track {
             background: linear-gradient(90deg, #1e1b4b 0%, #31102f 50%, #1e1b4b 100%);
             background-size: 200% 200%;
@@ -190,7 +183,7 @@
                             ২৯শে অক্টোবর, ২০২৬ | সকাল ১০:০০ টা
                         </span>
                         <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-950/80 text-amber-300 border border-amber-800 font-bengali">
-                            Made by তোমার বন্ধু আতিফ
+                            HSC 2026 Survival Portal
                         </span>
                     </div>
                 </div>
@@ -199,7 +192,7 @@
             <!-- Speech Bubble -->
             <div class="speech-bubble text-xs font-bengali text-red-100 flex items-center gap-1.5 shadow-xl">
                 <span>💬</span>
-                <span>Made with ❤️ by তোমার প্রিয় বন্ধু আতিফুর রহমান</span>
+                <span>HSC '26 পরীক্ষার্থীদের জন্য বিশেষ প্রলয় পোর্টাল</span>
             </div>
 
             <!-- Web Audio API Controls -->
@@ -232,13 +225,13 @@
             <span class="text-2xl select-none">🚨</span>
         </div>
 
-        <!-- Relatives & Brother's Result Warning Banner -->
+        <!-- Relatives & Warning Banner -->
         <div class="w-full glass-panel p-5 rounded-2xl border-l-4 border-l-amber-500 shadow-lg">
             <h3 class="text-base md:text-lg font-bold font-bengali text-amber-300 flex items-center gap-2 mb-2">
                 <i class="fa-solid fa-users-rectangle"></i> আত্মীয়-স্বজন ও চাচার স্পেশাল হুশিয়ারি 📢
             </h3>
             <p class="text-xs md:text-sm font-bengali text-gray-300 leading-relaxed">
-                "আতিফ, ভাইয়ের ছেলে বা ভাইয়ের রেজাল্ট দেখার আগে নিজের অতীতের লজ্জাজনক রেজাল্টের কথা একটু মনে করুন! ফুপু-চাচারা অলরেডি ফোন দিয়ে জেরা করার জন্য প্রস্তুত—<span class='text-amber-400 font-bold'>'আমাদের সুজন তো ফিজিক্সে ৮৫ পাইছে, তোমাদের পোলা কয়টা পাইলো?'</span> শোনার জন্য মানসিকভাবে রেডি থাকুন!"
+                "ভাইয়ের ছেলে বা ভাইয়ের রেজাল্ট দেখার আগে নিজের অতীতের লজ্জাজনক রেজাল্টের কথা একটু মনে করুন! ফুপু-চাচারা অলরেডি ফোন দিয়ে জেরা করার জন্য প্রস্তুত—<span class='text-amber-400 font-bold'>'আমাদের সুজন তো ফিজিক্সে ৮৫ পাইছে, তোমাদের পোলা কয়টা পাইলো?'</span> শোনার জন্য মানসিকভাবে রেডি থাকুন!"
             </p>
         </div>
 
@@ -257,17 +250,14 @@
             <!-- SVG Canvas Box -->
             <div class="w-full h-52 md:h-60 chase-track rounded-2xl relative border border-amber-900/50 flex items-center overflow-hidden px-2 md:px-4">
                 
-                <!-- Background Motion Lines -->
                 <div class="absolute inset-0 opacity-20 pointer-events-none flex justify-around">
                     <div class="w-px h-full bg-white transform -rotate-45"></div>
                     <div class="w-px h-full bg-white transform -rotate-45"></div>
                     <div class="w-px h-full bg-white transform -rotate-45"></div>
                 </div>
 
-                <!-- Scene Characters Track & Flying Weapon Container -->
                 <div id="chaseContainer" class="w-full flex items-center justify-between relative z-10 transition-all duration-300 gap-1 md:gap-3">
                     
-                    <!-- Flying Weapon Element (Absolute in container for dynamic targeting) -->
                     <span id="flyingWeapon" class="absolute text-3xl hidden z-40 transition-all">🩴</span>
 
                     <!-- 1. ATIF -->
@@ -315,9 +305,8 @@
                         <span class="text-[9px] md:text-[10px] font-bold font-bengali text-teal-300 bg-black/70 px-1.5 py-0.5 rounded mt-1">DURLOB</span>
                     </div>
 
-                    <!-- Mom Squad with Brooms -->
+                    <!-- Mom Squad -->
                     <div id="momSquad" class="flex items-center gap-1 relative">
-                        <!-- Mom 1 -->
                         <div class="flex flex-col items-center animate-shake relative">
                             <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
                             <svg class="w-14 h-20 md:w-16 md:h-24 text-red-500" viewBox="0 0 120 130">
@@ -337,7 +326,6 @@
                             </svg>
                         </div>
 
-                        <!-- Mom 2 -->
                         <div class="flex flex-col items-center animate-shake relative" style="animation-delay: 0.2s;">
                             <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
                             <svg class="w-14 h-20 md:w-16 md:h-24 text-rose-600" viewBox="0 0 120 130">
@@ -357,7 +345,6 @@
                             </svg>
                         </div>
 
-                        <!-- Mom 3 -->
                         <div class="flex flex-col items-center animate-shake relative" style="animation-delay: 0.4s;">
                             <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
                             <svg class="w-14 h-20 md:w-16 md:h-24 text-red-600" viewBox="0 0 120 130">
@@ -381,7 +368,7 @@
                 </div>
             </div>
 
-            <!-- Controls for Animation Scene -->
+            <!-- Controls -->
             <div class="mt-4 flex flex-wrap gap-2.5 justify-center">
                 <button onclick="boostChaseSpeed()" class="px-3 py-2 rounded-xl bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-100 font-bengali font-semibold text-xs md:text-sm transition active:scale-95 flex items-center gap-1.5">
                     <i class="fa-solid fa-gauge-high"></i> স্পিড বাড়াও 🚀
@@ -412,7 +399,6 @@
                 </p>
             </div>
 
-            <!-- Countdown Numbers Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 font-mono max-w-3xl mx-auto">
                 <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center">
                     <span id="days" class="text-3xl md:text-5xl font-black text-red-500">00</span>
@@ -432,14 +418,13 @@
                 </div>
             </div>
 
-            <!-- Result Doom Check Button -->
+            <!-- Result Check Button -->
             <div class="mt-6 max-w-md mx-auto">
                 <button onclick="showResultDoom()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-bengali font-bold text-sm md:text-base shadow-lg shadow-red-900/50 border border-red-400/50 transition active:scale-95 flex items-center justify-center gap-2 animate-pulse">
                     <i class="fa-solid fa-file-invoice-dollar text-amber-300"></i> রেজাল্ট চেক করো (খবর আছে!) 📄
                 </button>
             </div>
 
-            <!-- Dynamic Status Meme Bar -->
             <div class="mt-4 p-3 rounded-xl bg-black/50 border border-red-900/40 text-xs md:text-sm font-bengali text-amber-300 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-skull text-red-500"></i>
                 <span id="statusMemeMessage">প্রস্তুত তো? স্যান্ডেলের বাড়ি খাইতে মানসিক শক্তি সঞ্চয় করুন!</span>
@@ -449,7 +434,7 @@
         <!-- Interactive Tools Section -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
 
-            <!-- Card 1: Panic Barometer -->
+            <!-- Card 1 -->
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-red-600">
                 <div>
                     <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
@@ -474,7 +459,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Parent Excuses & Panic Dua Shield -->
+            <!-- Card 2 -->
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-amber-600">
                 <div>
                     <h3 class="text-base font-bold font-bengali text-amber-400 flex items-center gap-2 mb-2">
@@ -497,7 +482,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Relative Help / Chugli Box (Updated without Atif/Takrim/Durlob select) -->
+            <!-- Card 3 -->
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-purple-600 md:col-span-1">
                 <div>
                     <h3 class="text-base font-bold font-bengali text-purple-400 flex items-center gap-2 mb-2">
@@ -523,7 +508,7 @@
 
         </div>
 
-        <!-- HSC 26 Special Dua Mahfil Section -->
+        <!-- Dua Mahfil Section -->
         <div class="w-full max-w-md mx-auto mt-2">
             <button onclick="openDuaModal()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bengali font-bold text-sm md:text-base shadow-lg shadow-emerald-950/50 border border-emerald-400/50 transition active:scale-95 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-hands-praying text-amber-300"></i> HSC '26 এর জন্য বিশেষ দুয়া মাহফিল 🤲✨
@@ -532,13 +517,13 @@
 
     </main>
 
-    <!-- Footer Attribution -->
+    <!-- Footer Attribution (Cleaned) -->
     <footer class="relative z-10 w-full py-4 text-center glass-panel border-t border-red-900/30 mt-6 text-xs text-gray-400 font-bengali flex flex-col items-center gap-1">
-        <p class="text-sm font-semibold text-red-400">Made with ❤️ by তোমার বন্ধু আতিফুর রহমান</p>
+        <p class="text-sm font-semibold text-red-400">HSC '26 Survival & Doom Portal</p>
         <p class="px-4 text-center">বানানো হইছে সকল বিচলিত HSC '26 ক্যান্ডিডেটদের বিনোদনের জন্য। ভয় পেয়ো না ভাই/বোন, জীবন একটাই!</p>
     </footer>
 
-    <!-- Target Selection Modal (কাকে মারতে চাও?) -->
+    <!-- Target Selection Modal -->
     <div id="targetModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
         <div class="glass-panel p-6 rounded-3xl text-center relative border-2 border-red-500 max-w-sm w-full shadow-2xl animate-shake">
             <div class="text-4xl mb-2 select-none" id="modalWeaponEmoji">🩴</div>
@@ -563,13 +548,13 @@
         </div>
     </div>
 
-    <!-- Result Doom Roast Modal -->
+    <!-- Result Doom Roast Modal (Fixed spelling) -->
     <div id="resultDoomModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
         <div class="glass-panel-danger max-w-md w-full p-6 rounded-3xl text-center relative border-2 border-red-500 animate-shake">
             <div class="text-5xl mb-3 select-none">🤡🩴</div>
             <h3 class="text-xl md:text-2xl font-bold font-bengali text-red-400 mb-3">ফলাফল প্রকাশ (সতর্কবার্তা!)</h3>
             <p class="text-sm md:text-base font-bengali text-amber-200 mb-6 leading-relaxed bg-black/60 p-4 rounded-xl border border-red-900/50">
-                "বেয়াক্কল যে এক্সাম দিসোস লজ্জা করে না রেজাল্ট দেখতে? যা ভাগ বাংলাই! 🩴🏃‍♂️"
+                "বেয়াক্কল যে এক্সাম দিসোস লজ্জা করে না রেজাল্ট দেখতে? যা ভাগ এখান থেকে! 🩴🏃‍♂️"
             </p>
             <button onclick="closeResultDoom()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold font-bengali transition active:scale-95">
                 লজ্জা পেয়ে পালিয়ে গেলাম! 🏃‍♂️💨
@@ -704,7 +689,6 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // Fear Slider Logic
         const fearSlider = document.getElementById('fearSlider');
         const meterBadge = document.getElementById('meterBadge');
         const meterEmoji = document.getElementById('meterEmoji');
@@ -742,7 +726,6 @@
             document.getElementById('interactiveText').textContent = excuses[randomIndex];
         }
 
-        // Relative Chugli Generator (Using custom text input instead of select)
         const chugliComments = [
             "বলছে যে তাদের ছেলে নাকি গোল্ডেন পাবে, অথচ রোল চেক করে দেখি খাতা দেখার সময় পরীক্ষক কান্নাকাটি শুরু করেছেন!",
             "এই আত্মীয়ের ফোন আসলে বলবেন নিউটনের আপেল গাছের নিচে বসে নেটওয়ার্ক পাওয়া যাচ্ছে না!",
@@ -824,7 +807,6 @@
         }
         function closeTargetModal() { document.getElementById('targetModal').classList.add('hidden'); }
 
-        // Dynamic Flying Weapon targeting the exact selected character
         function executeAttack(targetName) {
             closeTargetModal();
             const weaponEl = document.getElementById('flyingWeapon');
