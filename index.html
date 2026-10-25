@@ -142,4 +142,273 @@
                     <p class="text-[11px] text-gray-400 mt-1 uppercase tracking-wider">ঘণ্টা</p>
                 </div>
                 <div class="bg-zinc-900/90 border border-red-900/50 rounded-2xl p-3 md:p-4 shadow-xl">
-                    <span id="minutes" class="text-3xl md:text-4xl font
+                    <span id="minutes" class="text-3xl md:text-4xl font-extrabold text-red-400">00</span>
+                    <p class="text-[11px] text-gray-400 mt-1 uppercase tracking-wider">মিনিট</p>
+                </div>
+                <div class="bg-zinc-900/90 border border-red-900/50 rounded-2xl p-3 md:p-4 shadow-xl">
+                    <span id="seconds" class="text-3xl md:text-4xl font-extrabold text-red-400">00</span>
+                    <p class="text-[11px] text-gray-400 mt-1 uppercase tracking-wider">সেকেন্ড</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-6">
+            <!-- Panic Button Card -->
+            <div class="bg-zinc-900/70 border border-red-900/30 rounded-2xl p-4 text-center shadow-lg">
+                <h4 class="text-sm md:text-base font-bold text-red-400 mb-2">🚨 অতিরিক্ত ভীতি কন্ট্রোল রুম</h4>
+                <p class="text-xs text-gray-400 mb-3">বেশি ভয় পেলে দ্রুত ইমার্জেন্সি দোয়া বা এক্সকিউজ জেনারেটর ব্যবহার করুন।</p>
+                <div class="flex justify-center gap-2 flex-wrap">
+                    <button onclick="openPanicModal()" class="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow">
+                        এসসি মোমেন্ট ইমার্জেন্সি 🆘
+                    </button>
+                    <button onclick="generateExcuse()" class="bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs px-3.5 py-2 rounded-xl border border-zinc-700 transition">
+                        বাবা-মার জন্য এক্সকিউজ 💡
+                    </button>
+                </div>
+            </div>
+
+            <!-- PDF Survival Guide Card -->
+            <div class="bg-zinc-900/70 border border-red-900/30 rounded-2xl p-4 text-center shadow-lg flex flex-col justify-between">
+                <div>
+                    <h4 class="text-sm md:text-base font-bold text-red-400 mb-2">📄 সারভাইভাল গাইড ও অ্যাডমিট কার্ড</h4>
+                    <p class="text-xs text-gray-400 mb-3">রেজাল্টের দিনে বাঁচার উপায় সম্বলিত স্পেশাল সার্টিফিকেট ডাউনলোড করুন।</p>
+                </div>
+                <button onclick="downloadSurvivalPDF()" class="w-full bg-gradient-to-r from-red-700 to-red-900 hover:from-red-600 hover:to-red-800 text-white text-xs font-bold py-2.5 rounded-xl transition shadow flex items-center justify-center gap-2">
+                    📥 সারভাইভাল গাইড PDF ডাউনলোড করুন
+                </button>
+            </div>
+        </div>
+
+        <!-- Excuse Display Box -->
+        <div id="excuseBox" class="w-full bg-zinc-900/90 border border-red-900/40 rounded-2xl p-4 text-center hidden mb-4">
+            <span class="text-xs text-red-400 font-bold block mb-1">💡 সেরা এক্সকিউজ আইডিয়া:</span>
+            <p id="excuseText" class="text-sm text-gray-200 italic"></p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-doom-900/95 border-t border-red-900/40 py-4 px-4 text-center text-xs text-gray-400">
+        <p class="mb-1">HSC 2026 Result Doom Countdown • হাসিখুশির ওয়েবসাইট</p>
+        <p class="text-red-400 font-bold">Made with ❤️ by tumar bondhu Atif</p>
+    </footer>
+
+    <!-- Panic Modal -->
+    <div id="panicModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-zinc-900 border border-red-600 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl relative">
+            <div class="text-4xl mb-3">😱🩴🧹</div>
+            <h3 class="text-xl font-bold text-red-500 mb-2">সতর্কবার্তা!</h3>
+            <p class="text-sm text-gray-300 mb-6">"প্রশ্ন কঠিন ছিল, খাতা দেখছে কড়া স্যারে, আমি একা না সবাই ফেল করছে!" — এই মন্ত্র ৩ বার জপ করুন এবং আম্মুর নাগালের বাইরে থাকুন।</p>
+            <button onclick="closePanicModal()" class="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-6 py-2.5 rounded-xl transition shadow">
+                বুঝেছি, দোয়া পড়ছি 🙏
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Audio & Logic -->
+    <script>
+        // Target Date: October 29, 2026, 10:00 AM (Bangladesh Time UTC+6)
+        const targetDate = new Date('2026-10-29T10:00:00+06:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Web Audio API Sound Effects (Max Volume Boosted for Mobile Speakers)
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playGhostSound() {
+            initAudio();
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                const compressor = audioCtx.createDynamicsCompressor();
+
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(450, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(90, audioCtx.currentTime + 1.5);
+
+                gain.gain.setValueAtTime(2.0, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.5);
+
+                osc.connect(compressor);
+                compressor.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 1.5);
+            } catch (e) {
+                console.log("Audio error", e);
+            }
+        }
+
+        let isMusicPlaying = false;
+        let musicInterval = null;
+
+        function playComedyMusic() {
+            initAudio();
+            const btn = document.getElementById('musicBtn');
+            if (isMusicPlaying) {
+                clearInterval(musicInterval);
+                isMusicPlaying = false;
+                btn.innerText = "🎵 মিউজিক";
+                btn.classList.remove('bg-green-800');
+                btn.classList.add('bg-red-900');
+                return;
+            }
+
+            isMusicPlaying = true;
+            btn.innerText = "🔇 বন্ধ করুন";
+            btn.classList.remove('bg-red-900');
+            btn.classList.add('bg-green-800');
+
+            const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 523.25];
+            musicInterval = setInterval(() => {
+                try {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    const note = notes[Math.floor(Math.random() * notes.length)];
+                    osc.frequency.setValueAtTime(note, audioCtx.currentTime);
+
+                    gain.gain.setValueAtTime(0.8, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                } catch(e) {}
+            }, 250);
+        }
+
+        // Animation track controls
+        function boostSpeed() {
+            playGhostSound();
+            const son = document.getElementById('runnerSon');
+            const dau = document.getElementById('runnerDaughter');
+            son.style.transform = "translateX(150px) scale(1.2)";
+            dau.style.transform = "translateX(120px) scale(1.2)";
+            setTimeout(() => {
+                son.style.transform = "translateX(0px) scale(1)";
+                dau.style.transform = "translateX(0px) scale(1)";
+            }, 1000);
+        }
+
+        function triggerBroomAttack() {
+            playGhostSound();
+            const ammu = document.getElementById('runnerAmmu');
+            ammu.style.transform = "translateX(-170px) rotate(-25deg) scale(1.3)";
+            setTimeout(() => {
+                ammu.style.transform = "translateX(0px) rotate(0deg) scale(1)";
+            }, 1000);
+        }
+
+        // Excuses generator
+        const excuses = [
+            "বোর্ড খাতা মূল্যায়নে বিশাল দুর্নীতি করেছে, খাতা চ্যালেঞ্জ করতে হবে!",
+            "প্রশ্নপত্র কঠিন না হলে তো কেউ টিকতেই পারত না, তাই এভারেজ ডাউন হয়ে গেছে!",
+            "পাশের বাসার আন্টির কুদৃষ্টির কারণে GPA 5 মিস হয়েছে!",
+            "খাতার মধ্যে ১০০০ টাকার নোট ছেড়ে আসছিলাম, কড়া স্যার মনে হয় খেয়াল করেনি!",
+            "ওএমআর (OMR) শিট পূরণ করার সময় রোল নাম্বার ১ ঘর ভুল হয়েছিল মনে হয়!"
+        ];
+
+        function generateExcuse() {
+            const box = document.getElementById('excuseBox');
+            const text = document.getElementById('excuseText');
+            const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+            text.innerText = `"${randomExcuse}"`;
+            box.classList.remove('hidden');
+        }
+
+        // Modal controls
+        function openPanicModal() {
+            playGhostSound();
+            document.getElementById('panicModal').classList.remove('hidden');
+        }
+
+        function closePanicModal() {
+            document.getElementById('panicModal').classList.add('hidden');
+        }
+
+        // PDF Generation using jsPDF
+        function downloadSurvivalPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFillColor(26, 5, 5);
+            doc.rect(0, 0, 210, 297, 'F');
+
+            doc.setTextColor(239, 68, 68);
+            doc.setFontSize(20);
+            doc.text("HSC 2026 RESULT SURVIVAL CERTIFICATE", 105, 25, { align: "center" });
+
+            doc.setTextColor(200, 200, 200);
+            doc.setFontSize(11);
+            doc.text("Created by Tumar Bondhu Atif", 105, 33, { align: "center" });
+
+            doc.setDrawColor(239, 68, 68);
+            doc.line(20, 38, 190, 38);
+
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(13);
+            doc.text("Official Parent Defense Guidelines:", 20, 50);
+
+            doc.setFontSize(10.5);
+            doc.setTextColor(210, 210, 210);
+            let y = 60;
+            const rules = [
+                "1. রেজাল্ট পাবলিশ হওয়ার সাথে সাথে ঘরের ওয়াইফাই ও মডেম বন্ধ রাখুন।",
+                "2. আম্মু ঝাড়ু ও স্যান্ডেল হাতে নেওয়ার আগেই নিরাপদ দূরত্বে (যেমন ছাদ বা বন্ধুর বাসা) আশ্রয় নিন।",
+                "3. পাশের বাসার আন্টির ছেলের রেজাল্ট শোনার আগেই নিজেকে ডিফেন্স করার জন্য",
+                "   'প্রশ্ন অনেক হার্ড হয়েছিল' ডায়লোগটি মনে রাখুন।",
+                "4. মনে রাখবেন GPA ই সব না, জীবন অনেক বড়!"
+            ];
+
+            rules.forEach(rule => {
+                doc.text(rule, 20, y);
+                y += 10;
+            });
+
+            doc.setTextColor(239, 68, 68);
+            doc.setFontSize(11);
+            doc.text("Good Luck for October 29, 2026 at 10:00 AM!", 105, y + 15, { align: "center" });
+
+            doc.save("HSC_2026_Survival_Guide.pdf");
+        }
+    </script>
+</body>
+</html>
