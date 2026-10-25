@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC 2026 Result Doom Countdown 🩴</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bengali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Fira+Code:wght@700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        bengali: ['"Hind Siliguri"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace']
+                    },
+                    colors: {
+                        blood: '#8b0000',
+                        crimson: '#dc2626',
+                        panic: '#ff003c'
+                    },
+                    animation: {
+                        'shake': 'shake 0.5s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-fast': 'pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite'
+                    },
+                    keyframes: {
+                        shake: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '25%': { transform: 'translate(-3px, 3px) rotate(-1deg)' },
+                            '75%': { transform: 'translate(3px, -3px) rotate(1deg)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: #090a0f;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 4px;
+        }
+
+        /* Glassmorphism visual style */
+        .glass-panel {
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-panel-danger {
+            background: rgba(40, 10, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Floating weapon elements background */
+        .floating-weapons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .weapon-item {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            user-select: none;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Blood drip effect on headers */
+        .blood-text {
+            background: linear-gradient(180deg, #ff4d4d 0%, #990000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 0.6));
+        }
+        
+        /* Modal Backdrop */
+        .modal-bg {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- Floating Background Weapons / Memes -->
+    <div class="floating-weapons" id="weaponsContainer"></div>
+
+    <!-- Header / Navbar -->
+    <header class="relative z-10 w-full px-4 py-4 glass-panel border-b border-red-900/40">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl animate-bounce">🩴</span>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wide text-red-500 font-bengali">HSC ২৬ প্রলয় কাউন্টডাউন</h1>
+                    <p class="text-xs text-gray-400 font-bengali">অপারেশন: "আম্মা ঝাড়ুডা থোন!"</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Audio Toggle Button -->
+                <button id="audioToggleBtn" onclick="toggleSpookyAudio()" class="px-3 py-2 rounded-lg bg-red-950/60 border border-red-800/50 hover:bg-red-900/80 transition flex items-center gap-2 text-xs md:text-sm text-red-300">
+                    <i class="fa-solid fa-volume-xmark text-red-400" id="audioIcon"></i>
+                    <span id="audioStatusText" class="hidden sm:inline font-bengali">ভয়াবহ মিউজিক অন</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 py-8 flex-1 flex flex-col items-center justify-center gap-8">
+
+        <!-- Banner Alert Box -->
+        <div class="w-full text-center glass-panel-danger p-4 rounded-2xl animate-pulse-fast border-red-600/60 flex items-center justify-center gap-3">
+            <span class="text-2xl">🚨</span>
+            <p class="text-sm md:text-lg font-semibold text-red-300 font-bengali">
+                জরুরী সতর্কবার্তা: ২৯ অক্টোবর সকাল ১০:০০ টা বাজলেই জীবন রহস্য উন্মোচিত হইবে!
+            </p>
+            <span class="text-2xl">🚨</span>
+        </div>
+
+        <!-- Timer Display Section -->
+        <div class="w-full glass-panel p-6 md:p-10 rounded-3xl text-center relative overflow-hidden border-2 border-red-800/40">
+            <div class="absolute -top-12 -left-12 w-32 h-32 bg-red-600/10 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-red-600/10 rounded-full blur-2xl"></div>
+
+            <h2 class="text-2xl md:text-3xl font-extrabold mb-2 font-bengali blood-text">
+                কেয়ামতের বাকী আর মাত্র...
+            </h2>
+            <p class="text-xs md:text-sm text-gray-400 mb-8 font-bengali">
+                (টার্গেট: ২৯ অক্টোবর ২০২৬, সকাল ১০:০০ টা - বাংলাদেশ সময়)
+            </p>
+
+            <!-- Countdown Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 font-mono max-w-3xl mx-auto">
+                <!-- Days -->
+                <div class="glass-panel p-4 md:p-6 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
+                    <span id="days" class="text-4xl md:text-6xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                    <span class="text-xs md:text-sm font-bengali text-gray-300 mt-2">দিন (Days)</span>
+                </div>
+                <!-- Hours -->
+                <div class="glass-panel p-4 md:p-6 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
+                    <span id="hours" class="text-4xl md:text-6xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                    <span class="text-xs md:text-sm font-bengali text-gray-300 mt-2">ঘণ্টা (Hours)</span>
+                </div>
+                <!-- Minutes -->
+                <div class="glass-panel p-4 md:p-6 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
+                    <span id="minutes" class="text-4xl md:text-6xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                    <span class="text-xs md:text-sm font-bengali text-gray-300 mt-2">মিনিট (Minutes)</span>
+                </div>
+                <!-- Seconds -->
+                <div class="glass-panel p-4 md:p-6 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition animate-pulse">
+                    <span id="seconds" class="text-4xl md:text-6xl font-black text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]">00</span>
+                    <span class="text-xs md:text-sm font-bengali text-gray-300 mt-2">সেকেন্ড (Seconds)</span>
+                </div>
+            </div>
+
+            <!-- Funny Status Bar based on time left -->
+            <div class="mt-8 p-3 rounded-xl bg-black/40 border border-red-900/30 text-xs md:text-sm font-bengali text-amber-400 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-skull"></i>
+                <span id="statusMemeMessage">প্রস্তুত তো? স্যান্ডেলের বাড়ি খাইতে মানসিক শক্তি সঞ্চয় করুন!</span>
+            </div>
+        </div>
+
+        <!-- Interactive Panic Tools Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+            <!-- Card 1: Fear Meter / Panic Barometer -->
+            <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-red-600">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold font-bengali text-red-400 flex items-center gap-2">
+                            <i class="fa-solid fa-gauge-high"></i> রেজাল্ট আতঙ্ক মিটার
+                        </h3>
+                        <span id="meterBadge" class="text-xs px-2.5 py-1 rounded-full bg-red-950 text-red-300 border border-red-700 font-bengali">লেভেল: চরম বিপদ</span>
+                    </div>
+
+                    <p class="text-xs text-gray-400 mb-6 font-bengali">
+                        আপনার আজকের ভয় কত শতাংশ? স্লাইডার টেনে আম্মা-আব্বার রিয়্যাকশন প্রেডিক্ট করুন:
+                    </p>
+
+                    <input type="range" id="fearSlider" min="0" max="100" value="85" class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-600">
+
+                    <div class="flex justify-between text-xs text-gray-500 mt-2 font-bengali">
+                        <span>Safe (GPA 5.00)</span>
+                        <span>Medium (মারধর হালকা)</span>
+                        <span>Extreme Danger (বাসা ছাড়ো)</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Outcome Box -->
+                <div class="mt-6 p-4 rounded-xl bg-red-950/40 border border-red-900/50 flex items-center gap-4">
+                    <div id="meterEmoji" class="text-4xl">🩴</div>
+                    <div>
+                        <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-sm">ঝাড়ু এবং ফ্লাইং স্যান্ডেল প্রস্তুত!</h4>
+                        <p id="meterDesc" class="text-xs text-gray-400 font-bengali">আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Interactive Buttons & Excuses Generator -->
+            <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-amber-600">
+                <div>
+                    <h3 class="text-xl font-bold font-bengali text-amber-400 flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-life-ring"></i> ইমার্জেন্সি সাপোর্ট কিট
+                    </h3>
+                    <p class="text-xs text-gray-400 mb-6 font-bengali">
+                        রেজাল্ট খারাপ হইলে আব্বা-আম্মারে দেওয়ার জন্য উজুহাত অথবা ইমোশনাল দোয়ার বাটন চাপুন।
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="generateExcuse()" class="flex-1 py-3 px-4 rounded-xl bg-amber-900/40 hover:bg-amber-800/60 border border-amber-600/50 text-amber-200 font-bengali font-semibold text-xs md:text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                            <i class="fa-solid fa-lightbulb"></i> ওজিল/এক্সকিউজ জেনারেটর
+                        </button>
+                        <button onclick="triggerPanicSupport()" class="flex-1 py-3 px-4 rounded-xl bg-red-900/60 hover:bg-red-800/80 border border-red-500/50 text-red-100 font-bengali font-semibold text-xs md:text-sm transition flex items-center justify-center gap-2 shadow-lg animate-pulse">
+                            <i class="fa-solid fa-hand-holding-heart"></i> প্যানিক বাটন (দোয়া)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Box for Excuses/Support -->
+                <div id="interactiveOutputCard" class="mt-6 p-4 rounded-xl bg-amber-950/30 border border-amber-800/40 min-h-[90px] flex items-center justify-center text-center">
+                    <p id="interactiveText" class="text-sm font-bengali text-amber-200 italic">
+                        "বাটন চাপুন এবং জাদুকরী উজুহাত কিংবা ইমোশনাল সান্ত্বনা গ্রহণ করুন!"
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Funny SVG Cartoon Art / Meme Canvas Gallery -->
+        <div class="w-full glass-panel p-6 rounded-2xl">
+            <h3 class="text-lg font-bold font-bengali text-red-400 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-masks-theater"></i> রেজাল্ট পরবর্তী সম্ভাব্য দৃশ্যপট (Visualizer)
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Art 1 -->
+                <div class="p-4 rounded-xl bg-black/40 border border-red-900/30 flex flex-col items-center text-center group hover:border-red-600 transition">
+                    <svg class="w-20 h-20 text-red-500 mb-2 transform group-hover:scale-110 transition" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+                        <!-- Slipper SVG Art -->
+                        <path d="M30 20 C 30 10, 70 10, 70 20 L 75 70 C 75 85, 25 85, 25 70 Z" fill="#991b1b" stroke="#ef4444"/>
+                        <path d="M35 35 Q 50 20 65 35" stroke="#fca5a5" stroke-width="5" fill="none"/>
+                        <circle cx="50" cy="60" r="4" fill="#ffffff"/>
+                    </svg>
+                    <h4 class="font-bold text-sm font-bengali text-red-300">আম্মার উড়ন্ত বাটা স্যান্ডেল</h4>
+                    <p class="text-xs text-gray-400 font-bengali mt-1">গতিবেগ: ১২০ কিমি/ঘণ্টা (গাইডেড মিসাইল)</p>
+                </div>
+
+                <!-- Art 2 -->
+                <div class="p-4 rounded-xl bg-black/40 border border-red-900/30 flex flex-col items-center text-center group hover:border-red-600 transition">
+                    <svg class="w-20 h-20 text-amber-500 mb-2 transform group-hover:scale-110 transition" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+                        <!-- Broom SVG Art -->
+                        <path d="M20 80 L70 30" stroke="#d97706" stroke-width="6"/>
+                        <path d="M65 35 L85 15 L95 25 L75 45 Z" fill="#f59e0b" stroke="#b45309"/>
+                        <line x1="70" y1="20" x2="85" y2="35" stroke="#78350f" stroke-width="2"/>
+                    </svg>
+                    <h4 class="font-bold text-sm font-bengali text-amber-300">বংশপরম্পরার নারকেল ঝাড়ু</h4>
+                    <p class="text-xs text-gray-400 font-bengali mt-1">প্রয়োগক্ষেত্র: ব্যাকসাইড ড্যামেজ থেরাপি</p>
+                </div>
+
+                <!-- Art 3 -->
+                <div class="p-4 rounded-xl bg-black/40 border border-red-900/30 flex flex-col items-center text-center group hover:border-red-600 transition">
+                    <svg class="w-20 h-20 text-blue-500 mb-2 transform group-hover:scale-110 transition" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+                        <!-- Server Error SVG Art -->
+                        <rect x="20" y="25" width="60" height="50" rx="6" fill="#1e293b" stroke="#3b82f6"/>
+                        <line x1="30" y1="40" x2="70" y2="40" stroke="#ef4444" stroke-width="4"/>
+                        <text x="50" y="60" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">504 ERROR</text>
+                    </svg>
+                    <h4 class="font-bold text-sm font-bengali text-blue-300">সার্ভার ডাউন ডান্স</h4>
+                    <p class="text-xs text-gray-400 font-bengali mt-1">সকাল ১০ টা থেকে দুপুর ২ টা পর্যন্ত ভরসা</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full py-4 text-center glass-panel border-t border-red-900/30 mt-8 text-xs text-gray-400 font-bengali">
+        <p>বানানো হইছে সকল বিচলিত HSC '26 ক্যান্ডিডেটদের বিনোদনের জন্য। ভয় পেয়ো না ভাই/বোন, জীবন একটাই! ❤️</p>
+    </footer>
+
+    <!-- Panic Modal Popup -->
+    <div id="panicModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
+        <div class="glass-panel-danger max-w-md w-full p-6 rounded-3xl text-center relative border-2 border-red-500 animate-shake">
+            <div class="text-5xl mb-3">🤲🩴</div>
+            <h3 class="text-2xl font-bold font-bengali text-red-400 mb-2">জরুরী আত্মরক্ষা দোয়া ও টেকনিক</h3>
+            <p id="modalQuote" class="text-sm font-bengali text-gray-200 mb-6 leading-relaxed">
+                "হে আল্লাহ! পরীক্ষার রেজাল্ট যাই হোক, আম্মার হাতের বেলুন যেন আমার পিঠ স্পর্শ না করে! আমিন।"
+            </p>
+            <button onclick="closePanicModal()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold font-bengali transition">
+                বুঝেছি, এখন আমি প্রস্তুত! 🏃‍♂️
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Target Date: October 29, 2026, 10:00 AM BD Time (UTC+6)
+        const targetDate = new Date('2026-10-29T10:00:00+06:00').getTime();
+
+        // Audio Context Setup using Web Audio API for synthesized scary sounds
+        let audioCtx = null;
+        let isAudioPlaying = false;
+        let oscillator = null;
+        let gainNode = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function toggleSpookyAudio() {
+            initAudio();
+            const btnText = document.getElementById('audioStatusText');
+            const btnIcon = document.getElementById('audioIcon');
+
+            if (!isAudioPlaying) {
+                // Start spooky ambient sound synth
+                oscillator = audioCtx.createOscillator();
+                gainNode = audioCtx.createGain();
+
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(65, audioCtx.currentTime); // Low eerie drone pitch (C2)
+                
+                // Add lfo effect for pulsation
+                const lfo = audioCtx.createOscillator();
+                lfo.frequency.value = 0.5; // slow pulse
+                const lfoGain = audioCtx.createGain();
+                lfoGain.gain.value = 15;
+                lfo.connect(oscillator.frequency);
+                lfo.start();
+
+                gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // low volume
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                oscillator.start();
+
+                isAudioPlaying = true;
+                btnText.textContent = "শব্দ বন্ধ করুন";
+                btnIcon.className = "fa-solid fa-volume-high text-green-400";
+            } else {
+                if (oscillator) {
+                    oscillator.stop();
+                    oscillator.disconnect();
+                }
+                isAudioPlaying = false;
+                btnText.textContent = "ভয়াবহ মিউজিক অন";
+                btnIcon.className = "fa-solid fa-volume-xmark text-red-400";
+            }
+        }
+
+        // Play dramatic sting sound effect for Panic Button
+        function playScreamSound() {
+            try {
+                initAudio();
+                const synthOsc = audioCtx.createOscillator();
+                const synthGain = audioCtx.createGain();
+                
+                synthOsc.type = 'triangle';
+                synthOsc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                synthOsc.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.8);
+                
+                synthGain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                synthGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+                
+                synthOsc.connect(synthGain);
+                synthGain.connect(audioCtx.destination);
+                
+                synthOsc.start();
+                synthOsc.stop(audioCtx.currentTime + 0.8);
+            } catch(e) {
+                console.log("Audio play blocked by browser policy");
+            }
+        }
+
+        // Timer Update Logic
+        function updateTimer() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                document.getElementById('statusMemeMessage').innerText = "💥 কেয়ামত শুরু হয়ে গেছে! রেজাল্ট সার্ভার চেক করুন!";
+                return;
+            }
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(d).padStart(2, '0');
+            document.getElementById('hours').innerText = String(h).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+
+            // Dynamic Meme status based on remaining days
+            const statusBox = document.getElementById('statusMemeMessage');
+            if (d > 2) {
+                statusBox.innerText = "😬 এখনও সময় আছে, আম্মা-আব্বারে বেশি বেশি চা বানিয়ে খাওয়ান!";
+            } else if (d >= 1) {
+                statusBox.innerText = "🚨 আর মাত্র কিছুদিন! বাসা থেকে পলায়নের প্ল্যান রেডি তো?";
+            } else {
+                statusBox.innerText = "😱 শেষ ২৪ ঘণ্টা! দরজা-জানালা বন্ধ রাখুন, স্যান্ডেল উড়ে আসতে পারে!";
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Excuses Generator Data
+        const excuses = [
+            "“আম্মা, রোল নম্বর মনে হয় বোর্ডে ভুল ইনপুট দিছে, এইটা আমার রেজাল্ট না!” 🤖",
+            "“আব্বু, এইবার খাতা খুব টাইট কাটছে, স্যারের সাথে নাকি মারামারি হইছিল!” 📝",
+            "“পরীক্ষার দিন ডেনগু জ্বর আছিল, তাও যে এক্সাম দিছি এইটাই তো অলৌকিক!” 🦟",
+            "“আমাদের সেন্টারের হেডস্যার নাকি রেজাল্ট ভুল পাঠাইছে বোর্ডে!” 🏫",
+            "“আম্মা, GPA-5 পাইয়া কী হবে? দিনশেষে তো সবাই মানুষ হইতে চায়!” 🕊️",
+            "“সার্ভার হ্যাক হইছে! আমার A+ হ্যাকাররা চুরি কইরা নিয়া গেছে!” 💻"
+        ];
+
+        function generateExcuse() {
+            const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+            const outputText = document.getElementById('interactiveText');
+            outputText.style.opacity = 0;
+            setTimeout(() => {
+                outputText.innerText = randomExcuse;
+                outputText.style.opacity = 1;
+            }, 150);
+        }
+
+        // Panic Button Action
+        const quotes = [
+            "“হে আল্লাহ! রেজাল্ট যাই হোক, আম্মার ঝাড়ুর সাইজ যেন ছোট হয়!” 🧹",
+            "“আম্মা গো, ছোটবেলায় যে বলতা আমি তোমার কলিজার টুকরা, সেই টুকরাটাকে আজ বাঁচাও!” 🥺",
+            "“পড়ালেখা তো সারাজীবন করা যাবে, কিন্তু বাবাকে কি আর শান্ত পাওয়া যাবে?” 🏃‍♂️",
+            "“দোয়া একটাই: রেজাল্ট দেখার পর যেন কারেন্ট চলে যায়!” ⚡"
+        ];
+
+        function triggerPanicSupport() {
+            playScreamSound();
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('modalQuote').innerText = randomQuote;
+            document.getElementById('panicModal').classList.remove('hidden');
+        }
+
+        function closePanicModal() {
+            document.getElementById('panicModal').classList.add('hidden');
+        }
+
+        // Fear Level Meter Interactive Slider
+        const fearSlider = document.getElementById('fearSlider');
+        const meterBadge = document.getElementById('meterBadge');
+        const meterEmoji = document.getElementById('meterEmoji');
+        const meterTitle = document.getElementById('meterTitle');
+        const meterDesc = document.getElementById('meterDesc');
+
+        fearSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            if (val < 30) {
+                meterBadge.innerText = "লেভেল: নিরাপদ Zone";
+                meterBadge.className = "text-xs px-2.5 py-1 rounded-full bg-green-950 text-green-300 border border-green-700 font-bengali";
+                meterEmoji.innerText = "😇";
+                meterTitle.innerText = "GPA 5.00 লোডিং!";
+                meterDesc.innerText = "মিষ্টি খাওয়ার প্রস্তুত নিন, আম্মা পায়েস রাঁধতেছে!";
+            } else if (val < 70) {
+                meterBadge.innerText = "লেভেল: মাঝারি ঝুঁকি";
+                meterBadge.className = "text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-700 font-bengali";
+                meterEmoji.innerText = "😰";
+                meterTitle.innerText = "হালকা বকাঝকা ও ঝাড়ুর ভয়";
+                meterDesc.innerText = "আম্মা কপালে হাত দিয়ে চিন্তা করতেছে, আব্বা গম্ভীর চোখে তাকায় আছে।";
+            } else {
+                meterBadge.innerText = "লেভেল: চরম বিপদ";
+                meterBadge.className = "text-xs px-2.5 py-1 rounded-full bg-red-950 text-red-300 border border-red-700 font-bengali";
+                meterEmoji.innerText = "🩴";
+                meterTitle.innerText = "ঝাড়ু এবং ফ্লাইং স্যান্ডেল প্রস্তুত!";
+                meterDesc.innerText = "আম্মা ইতোমধ্যেই স্যান্ডেল হাতে নিয়ে বারান্দায় ওয়েট করতেছেন।";
+            }
+        });
+
+        // Generate Floating Background Icons (Slippers, Brooms, Bats, etc.)
+        function initFloatingWeapons() {
+            const container = document.getElementById('weaponsContainer');
+            const items = ['🩴', '🧹', '🏏', '⚡', '💣', '😱', '🩸', '📜'];
+            const itemCount = 15;
+
+            for (let i = 0; i < itemCount; i++) {
+                const el = document.createElement('div');
+                el.className = 'weapon-item';
+                el.innerText = items[Math.floor(Math.random() * items.length)];
+                el.style.left = `${Math.random() * 100}%`;
+                el.style.top = `${Math.random() * 100}%`;
+                el.style.animationDelay = `${Math.random() * 5}s`;
+                el.style.animationDuration = `${3 + Math.random() * 4}s`;
+                container.appendChild(el);
+            }
+        }
+
+        window.onload = function() {
+            initFloatingWeapons();
+        };
+    </script>
+</body>
+</html>
