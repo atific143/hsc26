@@ -32,8 +32,7 @@
                         'float': 'float 4s ease-in-out infinite',
                         'pulse-fast': 'pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'chase': 'chase 1.5s linear infinite',
-                        'sweat': 'sweat 1s ease-in-out infinite',
-                        'weapon-fly': 'weaponFly 1s cubic-bezier(0.25, 1, 0.5, 1) forwards'
+                        'sweat': 'sweat 1s ease-in-out infinite'
                     },
                     keyframes: {
                         shake: {
@@ -52,11 +51,6 @@
                         sweat: {
                             '0%, 100%': { opacity: '0.2', transform: 'translate3d(0, 0, 0)' },
                             '50%': { opacity: '1', transform: 'translate3d(0, 6px, 0)' }
-                        },
-                        weaponFly: {
-                            '0%': { transform: 'translate3d(120px, 40px, 0) scale(0.5) rotate(0deg)', opacity: '0' },
-                            '30%': { opacity: '1', transform: 'translate3d(0, -20px, 0) scale(1.2) rotate(-360deg)' },
-                            '100%': { transform: 'translate3d(-220px, -10px, 0) scale(1) rotate(-720deg)', opacity: '1' }
                         }
                     }
                 }
@@ -113,17 +107,6 @@
             padding: 6px 12px;
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
             animation: float 3s ease-in-out infinite;
-        }
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 20px;
-            width: 0;
-            height: 0;
-            border: 6px solid transparent;
-            border-top-color: #991b1b;
-            border-bottom: 0;
         }
 
         /* Floating Meme Weapons background */
@@ -213,7 +196,7 @@
                 </div>
             </div>
 
-            <!-- Speech Bubble (Atif Creator Note) -->
+            <!-- Speech Bubble -->
             <div class="speech-bubble text-xs font-bengali text-red-100 flex items-center gap-1.5 shadow-xl">
                 <span>💬</span>
                 <span>Made with ❤️ by তোমার প্রিয় বন্ধু আতিফুর রহমান</span>
@@ -221,13 +204,11 @@
 
             <!-- Web Audio API Controls -->
             <div class="flex items-center gap-2 flex-wrap">
-                <!-- Comedy Rhythm Beat Button -->
                 <button id="comedyAudioBtn" onclick="toggleComedyMusic()" class="px-3.5 py-2 rounded-xl bg-amber-950/80 border border-amber-600/60 hover:bg-amber-900 transition active:scale-95 flex items-center gap-2 text-xs md:text-sm text-amber-200 shadow-md">
                     <i class="fa-solid fa-music text-amber-400" id="comedyIcon"></i>
                     <span id="comedyStatusText" class="font-bengali font-medium">মজার মিউজিক 🎵</span>
                 </button>
 
-                <!-- Spooky Ghost Howl Trigger -->
                 <button onclick="playGhostSound()" class="px-3.5 py-2 rounded-xl bg-purple-950/80 border border-purple-600/60 hover:bg-purple-900 transition active:scale-95 flex items-center gap-2 text-xs md:text-sm text-purple-200 shadow-md animate-pulse">
                     <i class="fa-solid fa-ghost text-purple-400"></i>
                     <span class="font-bengali font-medium">ভয়ংকর ভুতের শব্দ 👻</span>
@@ -251,7 +232,7 @@
             <span class="text-2xl select-none">🚨</span>
         </div>
 
-        <!-- Relatives & Brother's Result Warning Banner (Requested Feature) -->
+        <!-- Relatives & Brother's Result Warning Banner -->
         <div class="w-full glass-panel p-5 rounded-2xl border-l-4 border-l-amber-500 shadow-lg">
             <h3 class="text-base md:text-lg font-bold font-bengali text-amber-300 flex items-center gap-2 mb-2">
                 <i class="fa-solid fa-users-rectangle"></i> আত্মীয়-স্বজন ও চাচার স্পেশাল হুশিয়ারি 📢
@@ -261,7 +242,7 @@
             </p>
         </div>
 
-        <!-- Dynamic Animated Meme Track (Atif, Takrim, Durlob vs মা সমাজ) -->
+        <!-- Dynamic Animated Meme Track -->
         <div class="w-full glass-panel p-4 md:p-6 rounded-3xl border-2 border-red-800/40 relative overflow-hidden">
             <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
                 <h3 class="text-base md:text-lg font-bold font-bengali text-amber-400 flex items-center gap-2">
@@ -283,9 +264,12 @@
                     <div class="w-px h-full bg-white transform -rotate-45"></div>
                 </div>
 
-                <!-- Scene Characters Track (3 Boys & Mom Squad) -->
+                <!-- Scene Characters Track & Flying Weapon Container -->
                 <div id="chaseContainer" class="w-full flex items-center justify-between relative z-10 transition-all duration-300 gap-1 md:gap-3">
                     
+                    <!-- Flying Weapon Element (Absolute in container for dynamic targeting) -->
+                    <span id="flyingWeapon" class="absolute text-3xl hidden z-40 transition-all">🩴</span>
+
                     <!-- 1. ATIF -->
                     <div id="targetATIF" class="flex flex-col items-center animate-chase relative">
                         <span class="text-blue-400 text-xs animate-sweat absolute -top-4 left-0">💦</span>
@@ -331,11 +315,8 @@
                         <span class="text-[9px] md:text-[10px] font-bold font-bengali text-teal-300 bg-black/70 px-1.5 py-0.5 rounded mt-1">DURLOB</span>
                     </div>
 
-                    <!-- Mom Squad with Brooms & Flying Weapon Container -->
+                    <!-- Mom Squad with Brooms -->
                     <div id="momSquad" class="flex items-center gap-1 relative">
-                        <!-- Flying Weapon Element -->
-                        <span id="flyingWeapon" class="absolute -left-20 top-2 text-3xl hidden z-30">🩴</span>
-
                         <!-- Mom 1 -->
                         <div class="flex flex-col items-center animate-shake relative">
                             <span class="text-red-500 text-[8px] md:text-[10px] font-bold absolute -top-4">💢</span>
@@ -433,24 +414,20 @@
 
             <!-- Countdown Numbers Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 font-mono max-w-3xl mx-auto">
-                <!-- Days -->
-                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
-                    <span id="days" class="text-3xl md:text-5xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center">
+                    <span id="days" class="text-3xl md:text-5xl font-black text-red-500">00</span>
                     <span class="text-xs font-bengali text-gray-300 mt-1">দিন (Days)</span>
                 </div>
-                <!-- Hours -->
-                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
-                    <span id="hours" class="text-3xl md:text-5xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center">
+                    <span id="hours" class="text-3xl md:text-5xl font-black text-red-500">00</span>
                     <span class="text-xs font-bengali text-gray-300 mt-1">ঘণ্টা (Hours)</span>
                 </div>
-                <!-- Minutes -->
-                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition">
-                    <span id="minutes" class="text-3xl md:text-5xl font-black text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">00</span>
+                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center">
+                    <span id="minutes" class="text-3xl md:text-5xl font-black text-red-500">00</span>
                     <span class="text-xs font-bengali text-gray-300 mt-1">মিনিট (Minutes)</span>
                 </div>
-                <!-- Seconds -->
-                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center transform hover:scale-105 transition animate-pulse">
-                    <span id="seconds" class="text-3xl md:text-5xl font-black text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]">00</span>
+                <div class="glass-panel p-3.5 md:p-5 rounded-2xl border border-red-900/60 flex flex-col items-center justify-center animate-pulse">
+                    <span id="seconds" class="text-3xl md:text-5xl font-black text-red-400">00</span>
                     <span class="text-xs font-bengali text-gray-300 mt-1">সেকেন্ড (Seconds)</span>
                 </div>
             </div>
@@ -472,7 +449,7 @@
         <!-- Interactive Tools Section -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
 
-            <!-- Card 1: Panic Barometer / Fear Level Slider -->
+            <!-- Card 1: Panic Barometer -->
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-red-600">
                 <div>
                     <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
@@ -484,23 +461,14 @@
                         </span>
                     </div>
 
-                    <p class="text-xs text-gray-400 mb-4 font-bengali">
-                        ভয় কতটুকু? স্লাইডার টেনে অভিভাবক সতর্কবার্তা দেখুন:
-                    </p>
-
+                    <p class="text-xs text-gray-400 mb-4 font-bengali">ভয় কতটুকু? স্লাইডার টেনে অভিভাবক সতর্কবার্তা দেখুন:</p>
                     <input type="range" id="fearSlider" min="0" max="100" value="85" class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-600">
-
-                    <div class="flex justify-between text-[10px] text-gray-400 mt-2 font-bengali">
-                        <span>Safe</span>
-                        <span>Medium</span>
-                        <span>Extreme</span>
-                    </div>
                 </div>
 
-                <div class="mt-4 p-3 rounded-xl bg-red-950/40 border border-red-900/50 flex items-center gap-3 cursor-pointer hover:bg-red-950/60 transition" onclick="playGhostSound()">
+                <div class="mt-4 p-3 rounded-xl bg-red-950/40 border border-red-900/50 flex items-center gap-3 cursor-pointer" onclick="playGhostSound()">
                     <div id="meterEmoji" class="text-2xl select-none">🩴</div>
                     <div>
-                        <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-xs">উড়ন্ত ঝাড়ু + স্যান্ডেল রেডি!</h4>
+                        <h4 id="meterTitle" class="font-bold font-bengali text-red-300 text-xs">উড়ন্ত স্যান্ডেল রেডি!</h4>
                         <p id="meterDesc" class="text-[10px] text-gray-400 font-bengali">মা সমাজ বারান্দায় ওয়েট করতেছেন।</p>
                     </div>
                 </div>
@@ -512,9 +480,7 @@
                     <h3 class="text-base font-bold font-bengali text-amber-400 flex items-center gap-2 mb-2">
                         <i class="fa-solid fa-shield-halved"></i> ওজুহাত ও দোয়া কিট
                     </h3>
-                    <p class="text-xs text-gray-400 mb-4 font-bengali">
-                        পরিস্থিতি সামলাতে বাটন চেপে ওজুহাত নিন:
-                    </p>
+                    <p class="text-xs text-gray-400 mb-4 font-bengali">পরিস্থিতি সামলাতে বাটন চেপে ওজুহাত নিন:</p>
 
                     <div class="flex flex-col gap-2">
                         <button onclick="generateExcuse()" class="py-2 px-3 rounded-xl bg-amber-900/40 hover:bg-amber-800/60 border border-amber-600/50 text-amber-200 font-bengali font-semibold text-xs transition active:scale-95 flex items-center justify-center gap-1.5 shadow">
@@ -527,30 +493,22 @@
                 </div>
 
                 <div id="interactiveOutputCard" class="mt-4 p-3 rounded-xl bg-amber-950/30 border border-amber-800/40 min-h-[60px] flex items-center justify-center text-center">
-                    <p id="interactiveText" class="text-[11px] font-bengali text-amber-200 italic">
-                        "বাটন চাপুন এবং জাদুকরী উজুহাত গ্রহণ করুন!"
-                    </p>
+                    <p id="interactiveText" class="text-[11px] font-bengali text-amber-200 italic">"বাটন চাপুন এবং জাদুকরী উজুহাত গ্রহণ করুন!"</p>
                 </div>
             </div>
 
-            <!-- Card 3: Roll Number Chugli & Roast Generator -->
+            <!-- Card 3: Relative Help / Chugli Box (Updated without Atif/Takrim/Durlob select) -->
             <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border-l-4 border-l-purple-600 md:col-span-1">
                 <div>
                     <h3 class="text-base font-bold font-bengali text-purple-400 flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-user-secret"></i> গোপন চুগলি ও রোস্ট বক্স 🤫
+                        <i class="fa-solid fa-user-secret"></i> আত্মীয়-স্বজন ও চুগলি বক্স 🤫
                     </h3>
-                    <p class="text-xs text-gray-400 mb-3 font-bengali">
-                        রোল নম্বর ও বন্ধু সিলেক্ট করে চুগলি শুনুন:
-                    </p>
+                    <p class="text-xs text-gray-400 mb-3 font-bengali">কোন আত্মীয়কে নিয়ে চুগলি বা সাহায্য চান লিখুন:</p>
 
                     <div class="flex flex-col gap-2">
-                        <input type="text" id="rollNumberInput" placeholder="রোল নম্বর লিখুন (যেমন: ২৬৪৫২১)" class="w-full px-3 py-1.5 bg-black/60 border border-purple-900/60 rounded-xl text-xs text-purple-200 focus:outline-none focus:border-purple-500 font-mono">
+                        <input type="text" id="relativeInput" placeholder="যেমন: মেজো ফুফু, বড় চাচা, খালামণি" class="w-full px-3 py-1.5 bg-black/60 border border-purple-900/60 rounded-xl text-xs text-purple-200 focus:outline-none focus:border-purple-500 font-bengali">
                         
-                        <select id="chugliTarget" class="w-full px-3 py-1.5 bg-black/60 border border-purple-900/60 rounded-xl text-xs text-purple-200 focus:outline-none focus:border-purple-500 font-bengali">
-                            <option value="ATIF">ATIF (আতিফ)</option>
-                            <option value="TAKRIM">TAKRIM (তাকরীম)</option>
-                            <option value="DURLOB">DURLOB (দুলর্ভ)</option>
-                        </select>
+                        <input type="text" id="rollNumberInput" placeholder="রোল নম্বর লিখুন (যেমন: ২৬৪৫২১)" class="w-full px-3 py-1.5 bg-black/60 border border-purple-900/60 rounded-xl text-xs text-purple-200 focus:outline-none focus:border-purple-500 font-mono">
 
                         <button onclick="generateChugli()" class="py-2 px-3 rounded-xl bg-purple-900/60 hover:bg-purple-800 border border-purple-500 text-purple-100 font-bengali font-semibold text-xs transition active:scale-95 flex items-center justify-center gap-1.5 shadow">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> চুগলি জেনারেট করো 🤭
@@ -559,15 +517,13 @@
                 </div>
 
                 <div id="chugliOutputBox" class="mt-4 p-3 rounded-xl bg-purple-950/40 border border-purple-800/40 min-h-[60px] flex items-center justify-center text-center">
-                    <p id="chugliResultText" class="text-[11px] font-bengali text-purple-200 italic">
-                        "রোল নম্বর দিয়ে বন্ধুর নামে ফানি চুগলি উপভোগ করুন!"
-                    </p>
+                    <p id="chugliResultText" class="text-[11px] font-bengali text-purple-200 italic">"আত্মীয়ের নাম ও রোল দিয়ে ফানি চুগলি উপভোগ করুন!"</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- HSC 26 Special Dua Mahfil Section (Requested Feature) -->
+        <!-- HSC 26 Special Dua Mahfil Section -->
         <div class="w-full max-w-md mx-auto mt-2">
             <button onclick="openDuaModal()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bengali font-bold text-sm md:text-base shadow-lg shadow-emerald-950/50 border border-emerald-400/50 transition active:scale-95 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-hands-praying text-amber-300"></i> HSC '26 এর জন্য বিশেষ দুয়া মাহফিল 🤲✨
@@ -621,7 +577,7 @@
         </div>
     </div>
 
-    <!-- HSC 26 Special Dua Mahfil Modal (Requested Feature) -->
+    <!-- HSC 26 Special Dua Mahfil Modal -->
     <div id="duaModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
         <div class="glass-panel max-w-md w-full p-6 rounded-3xl text-center relative border-2 border-emerald-500 animate-shake bg-slate-900/95">
             <div class="text-5xl mb-3 select-none">🤲✨</div>
@@ -635,7 +591,7 @@
         </div>
     </div>
 
-    <!-- Panic Emergency Dua Modal Popup -->
+    <!-- Panic Emergency Modal -->
     <div id="panicModal" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
         <div class="glass-panel-danger max-w-md w-full p-6 rounded-3xl text-center relative border-2 border-red-500 animate-shake">
             <div class="text-5xl mb-3 select-none">🤲🩴</div>
@@ -649,16 +605,13 @@
         </div>
     </div>
 
-    <!-- JavaScript Logic & Sound Engine -->
+    <!-- JavaScript Logic -->
     <script>
-        // Target Date: October 29, 2026, 10:00 AM BD Time (UTC+6)
         const targetDate = new Date('2026-10-29T10:00:00+06:00').getTime();
 
-        // Detect if the user is viewing on a mobile device/phone Chrome
         const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         const mobileAudioBoost = isMobileDevice ? 3.5 : 1.0; 
 
-        // Web Audio API Context
         let audioCtx = null;
         let isComedyPlaying = false;
         let comedyInterval = null;
@@ -669,7 +622,6 @@
             }
         }
 
-        // 1. Upbeat Bengali Comedy Rhythm Synth Beat Loop
         function toggleComedyMusic() {
             initAudio();
             const btnText = document.getElementById('comedyStatusText');
@@ -688,23 +640,17 @@
                     try {
                         const osc = audioCtx.createOscillator();
                         const gain = audioCtx.createGain();
-                        
                         osc.type = step % 2 === 0 ? 'sine' : 'triangle';
                         osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
-                        
-                        const baseGain = 0.06;
-                        gain.gain.setValueAtTime(baseGain * mobileAudioBoost, audioCtx.currentTime);
+                        gain.gain.setValueAtTime(0.06 * mobileAudioBoost, audioCtx.currentTime);
                         gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
-                        
                         osc.connect(gain);
                         gain.connect(audioCtx.destination);
-                        
                         osc.start();
                         osc.stop(audioCtx.currentTime + 0.18);
                         step++;
                     } catch(e) {}
                 }, 240);
-
             } else {
                 isComedyPlaying = false;
                 if (comedyInterval) clearInterval(comedyInterval);
@@ -713,33 +659,25 @@
             }
         }
 
-        // 2. Spooky Ghost Sound Generator
         function playGhostSound() {
             try {
                 initAudio();
                 const ghostOsc = audioCtx.createOscillator();
                 const ghostGain = audioCtx.createGain();
-                
                 ghostOsc.type = 'sine';
                 ghostOsc.frequency.setValueAtTime(280, audioCtx.currentTime);
                 ghostOsc.frequency.exponentialRampToValueAtTime(650, audioCtx.currentTime + 0.5);
                 ghostOsc.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 1.2);
-                
                 ghostGain.gain.setValueAtTime(0.01 * mobileAudioBoost, audioCtx.currentTime);
                 ghostGain.gain.linearRampToValueAtTime(0.2 * mobileAudioBoost, audioCtx.currentTime + 0.6);
                 ghostGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
-                
                 ghostOsc.connect(ghostGain);
                 ghostGain.connect(audioCtx.destination);
-                
                 ghostOsc.start();
                 ghostOsc.stop(audioCtx.currentTime + 1.2);
-            } catch(e) {
-                console.log("Audio API standard trigger limit");
-            }
+            } catch(e) {}
         }
 
-        // 3. Countdown Timer Updater
         function updateTimer() {
             const now = new Date().getTime();
             const difference = targetDate - now;
@@ -749,7 +687,7 @@
                 document.getElementById('hours').innerText = "00";
                 document.getElementById('minutes').innerText = "00";
                 document.getElementById('seconds').innerText = "00";
-                document.getElementById('statusMemeMessage').innerText = "💥 কেয়ামত শুরু হয়ে গেছে! রেজাল্ট সার্ভার চেক করুন!";
+                document.getElementById('statusMemeMessage').innerText = "💥 কেয়ামত শুরু হয়ে গেছে!";
                 return;
             }
 
@@ -763,11 +701,10 @@
             document.getElementById('minutes').innerText = String(m).padStart(2, '0');
             document.getElementById('seconds').innerText = String(s).padStart(2, '0');
         }
-        
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // 4. Fear Slider Logic
+        // Fear Slider Logic
         const fearSlider = document.getElementById('fearSlider');
         const meterBadge = document.getElementById('meterBadge');
         const meterEmoji = document.getElementById('meterEmoji');
@@ -794,71 +731,58 @@
             }
         });
 
-        // 5. Parent Excuses Generator
         const excuses = [
             "\"প্রশ্নপত্র ফাস না হয়ে আমাদের ব্রেন ফাস হয়ে গেছিল!\"",
             "\"খাতায় ফিজিক্সের নিউটন সাহেবের ল' এর বদলে আমাদের দুঃখের লাভ স্টোরি লিখে আসছি!\"",
             "\"শিক্ষামন্ত্রীর দোষ ভাই, আমাদের কোনো দোষ নাই!\"",
-            "\"সারাক্ষণ তো বলতাম দেশের পরিস্থিতি ভালো না, আজ প্রমাণ করলাম খাতার রেজাল্টও ভালো না!\"",
-            "\"স্যার খাতা দেখার সময় হয়তো চশমা পরতে ভুলে গেছিলেন!\"",
-            "\"পরীক্ষার হলে মশার কামড়ে এমসিকিউ সব ভুল দাগাইছি!\""
+            "\"সারাক্ষণ তো বলতাম দেশের পরিস্থিতি ভালো না, আজ প্রমাণ করলাম খাতার রেজাল্টও ভালো না!\""
         ];
-
         function generateExcuse() {
             const randomIndex = Math.floor(Math.random() * excuses.length);
             document.getElementById('interactiveText').textContent = excuses[randomIndex];
         }
 
-        // 6. Roll Number Chugli Generator
+        // Relative Chugli Generator (Using custom text input instead of select)
         const chugliComments = [
-            "এই রোল নম্বরের মালিক পরীক্ষার খাতায় স্যারদের কাছে দয়া ভিক্ষা করে দুই পেজ রচনার মতো চিঠি লিখে এসেছে!",
-            "গোপন সূত্রে খবর আছে, এই রোল ধারী পরীক্ষার হলে এমসিকিউ সব কয়টা সি সিরিয়াল দাগিয়ে পাশ করার স্বপ্ন দেখছে!",
-            "ফিজিক্স পরীক্ষার দিন এই ভদ্রলোক হলের বাইরে দাঁড়িয়ে কান্নাকাটি করে নিউটনের ল' পাল্টানোর দাবি তুলেছিল!",
-            "বোর্ডের প্রধান পরীক্ষক এই রোল নম্বর দেখার সাথে সাথেই চা খাওয়ার বিরতি নিয়েছেন এবং খাতাটা ডাস্টবিনে ফেলে দেওয়ার কথা ভেবেছেন!",
-            "এই রোলের পেছনের ইতিহাস বড়োই মর্মান্তিক—পাস তো দূরের কথা, খাতার দাম তুলতে খাতা ফিনাইল দিয়ে ধুতে হবে!"
+            "বলছে যে তাদের ছেলে নাকি গোল্ডেন পাবে, অথচ রোল চেক করে দেখি খাতা দেখার সময় পরীক্ষক কান্নাকাটি শুরু করেছেন!",
+            "এই আত্মীয়ের ফোন আসলে বলবেন নিউটনের আপেল গাছের নিচে বসে নেটওয়ার্ক পাওয়া যাচ্ছে না!",
+            "গোপন সূত্রে খবর আছে, এই আত্মীয়ের পোলাপান নিজেই ফিজিক্সের সূত্র গুলিয়ে ফেলে চাচার কাঁধে দোষ চাপাচ্ছে!",
+            "এই রোল নম্বরের কথা শুনলেই বোর্ডের অফিসাররা বারান্দায় গিয়ে দীর্ঘশ্বাস ফেলেন!"
         ];
 
         function generateChugli() {
+            const relative = document.getElementById('relativeInput').value.trim();
             const roll = document.getElementById('rollNumberInput').value.trim();
-            const target = document.getElementById('chugliTarget').value;
             const outputText = document.getElementById('chugliResultText');
 
-            if (!roll) {
-                outputText.textContent = `⚠️ প্রথমে ${target}-এর রোল নম্বরটি ইনপুট দিন!`;
+            if (!relative || !roll) {
+                outputText.textContent = "⚠️ প্রথমে আত্মীয়ের নাম ও রোল নম্বর উভয়ই ইনপুট দিন!";
                 return;
             }
 
             const randomRoast = chugliComments[Math.floor(Math.random() * chugliComments.length)];
-            outputText.textContent = `🤫 [রোল: ${roll}] ${target} সম্পর্কে গোপন চুগলি: ${randomRoast}`;
+            outputText.textContent = `🤫 [আত্মীয়: ${relative} | রোল: ${roll}] চুগলি রিপোর্ট: ${randomRoast}`;
             playGhostSound();
         }
 
-        // 7. Modals Control (Panic, Result Doom, Dua Mahfil)
         function triggerPanicSupport() {
             document.getElementById('panicModal').classList.remove('hidden');
             playGhostSound();
         }
-        function closePanicModal() {
-            document.getElementById('panicModal').classList.add('hidden');
-        }
+        function closePanicModal() { document.getElementById('panicModal').classList.add('hidden'); }
 
         function showResultDoom() {
             document.getElementById('resultDoomModal').classList.remove('hidden');
             playGhostSound();
         }
-        function closeResultDoom() {
-            document.getElementById('resultDoomModal').classList.add('hidden');
-        }
+        function closeResultDoom() { document.getElementById('resultDoomModal').classList.add('hidden'); }
 
         function openDuaModal() {
             document.getElementById('duaModal').classList.remove('hidden');
             playGhostSound();
         }
-        function closeDuaModal() {
-            document.getElementById('duaModal').classList.add('hidden');
-        }
+        function closeDuaModal() { document.getElementById('duaModal').classList.add('hidden'); }
 
-        // 8. Chase Speed Controls
         let currentSpeedKmph = 120;
         function boostChaseSpeed() {
             currentSpeedKmph += 40;
@@ -881,7 +805,6 @@
             s3.style.animationDuration = `${dur}s`;
         }
 
-        // 9. Target Attack Modal Logic
         let activeWeapon = 'sandal';
         function openTargetModal(weaponType) {
             activeWeapon = weaponType;
@@ -899,32 +822,54 @@
             modal.classList.remove('hidden');
             playGhostSound();
         }
-        function closeTargetModal() {
-            document.getElementById('targetModal').classList.add('hidden');
-        }
+        function closeTargetModal() { document.getElementById('targetModal').classList.add('hidden'); }
+
+        // Dynamic Flying Weapon targeting the exact selected character
         function executeAttack(targetName) {
             closeTargetModal();
             const weaponEl = document.getElementById('flyingWeapon');
-            const targetChar = document.getElementById(`target${targetName}`);
+            const targetEl = document.getElementById(`target${targetName}`);
+            const momSquad = document.getElementById('momSquad');
+
+            if (!targetEl || !momSquad) return;
+
+            const targetRect = targetEl.getBoundingClientRect();
+            const momRect = momSquad.getBoundingClientRect();
+            const trackRect = document.querySelector('.chase-track').getBoundingClientRect();
+
+            const startX = momRect.left - trackRect.left;
+            const startY = momRect.top - trackRect.top + 20;
+            const destX = targetRect.left - trackRect.left;
+            const destY = targetRect.top - trackRect.top;
 
             weaponEl.textContent = activeWeapon === 'sandal' ? '🩴' : '🧹';
+            weaponEl.style.left = `${startX}px`;
+            weaponEl.style.top = `${startY}px`;
             weaponEl.classList.remove('hidden');
-            weaponEl.style.animation = 'none';
-            void weaponEl.offsetWidth;
-            weaponEl.style.animation = 'weapon-fly 1s cubic-bezier(0.25, 1, 0.5, 1) forwards';
 
-            if (targetChar) {
-                targetChar.classList.add('animate-shake');
-                setTimeout(() => targetChar.classList.remove('animate-shake'), 800);
-            }
-            playGhostSound();
+            weaponEl.style.transition = 'none';
+            weaponEl.style.transform = 'scale(0.5) rotate(0deg)';
+            void weaponEl.offsetWidth;
+
+            weaponEl.style.transition = 'all 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+            weaponEl.style.left = `${destX}px`;
+            weaponEl.style.top = `${destY}px`;
+            weaponEl.style.transform = 'scale(1.3) rotate(-720deg)';
+
+            setTimeout(() => {
+                targetEl.classList.add('animate-shake');
+                playGhostSound();
+                setTimeout(() => targetEl.classList.remove('animate-shake'), 600);
+            }, 750);
 
             const weaponName = activeWeapon === 'sandal' ? 'স্যান্ডেল' : 'ঝাড়ু';
-            document.getElementById('statusMemeMessage').innerText = `💥 মা সমাজ কর্তৃক ${targetName}-এর ওপর নিখুঁত নিশানায় ${weaponName} নিক্ষেপ করা হয়েছে!`;
-            setTimeout(() => weaponEl.classList.add('hidden'), 1000);
+            document.getElementById('statusMemeMessage').innerText = `💥 মা সমাজ কর্তৃক সরাসরি ${targetName}-এর ওপর নিখুঁত নিশানায় ${weaponName} নিক্ষেপ করা হয়েছে!`;
+
+            setTimeout(() => {
+                weaponEl.classList.add('hidden');
+            }, 900);
         }
 
-        // 10. Floating Weapons Background Generator
         const weapons = ['🩴', '🧹', '⚡', '🔥', '💀', '📚', '💔'];
         const container = document.getElementById('weaponsContainer');
         for (let i = 0; i < 20; i++) {
